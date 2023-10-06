@@ -3,7 +3,7 @@ Created by Leah Livingston
 
 
 
-
+---
 ### **An elevator pitch of your game idea**
 
 Do you remember Chris Pirih's classic 1991 computer game ["SkiFree"](https://classicreload.com/win3x-skifree.html#)? If you enjoyed running from the abominal snowman back then, you'll love this version set in the Austrian Alps!
@@ -29,25 +29,26 @@ Ski down the hill in under one minute, and you win!
 
 
 
-
+---
 ### **What tech stack you plan on using (example: using Tailwind for styling)**
 
 This game is built using HTML, CSS, JavaScript & Canvas.
 
 
 
-
+---
 ### **Wireframes of your game**
 The minimum viable product (MVP) goal is for the user interface to show basic CSS in order for a functional game to be played.
-
+---
 ###### Starting Screen
 ![Start Screen](gameStart.png)
-
+---
 ###### During Gameplay
 ![During Game](middleOfGame.png)
 
+---
 ![Last 10 Seconds](lastTenSeconds.png)
-
+---
 ###### End Screens for Winner vs. Loser
 ![Winner](winnerScreen.png)
 
@@ -59,7 +60,7 @@ The stretch goal is for the user interface and experience to mimic the graphics 
 
 
 
-
+---
 ### **MVP Goals**
 
 
@@ -78,7 +79,7 @@ The stretch goal is for the user interface and experience to mimic the graphics 
 
 
 
-
+---
 ### **Stretch Goals**
 
 
@@ -97,7 +98,7 @@ The stretch goal is for the user interface and experience to mimic the graphics 
 
 
 
-
+---
 ### **Any potential roadblocks**
 - How to create a gameboard that is longer than the screen seen at the start
 
