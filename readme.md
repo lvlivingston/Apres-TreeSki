@@ -1,8 +1,9 @@
 # **Project 1 - A Browser Based Game**
 Created by Leah Livingston
 
- <pre>
- <pre>
+
+
+
 ### **An elevator pitch of your game idea**
 
 Do you remember Chris Pirih's classic 1991 computer game ["SkiFree"](https://classicreload.com/win3x-skifree.html#)? If you enjoyed running from the abominal snowman back then, you'll love this version set in the Austrian Alps!
@@ -10,33 +11,32 @@ Do you remember Chris Pirih's classic 1991 computer game ["SkiFree"](https://cla
 Click the ["Auf geht's!"](https://www.gymglish.com/en/wunderbla/german-vocabulary/auf-gehts) button when you're ready to ski.
 You've won when your skier makes it to the bottom of the ski slope just in time to make the train home!
 
+
 ###### Setting the scene
 After skiing all morning, you spent the afternoon in the Stúbe hut drinking during après-ski. The last train home is in ten minutes, so you're cutting it close. It's time to ski down the hill as quickly as possible to make it back home.
 
- <pre>
+
 ###### The goal
 Ski down the slope in time to make the last train home. 
 
- <pre>
+
 ###### How to play
 Use the left, right, and down arrow keys on your keyboard to navigate down the ski slope.
 
- <pre>
+
 ###### How to win
 Ski down the hill in under one minute, and you win!
 
 
 
- <pre>
- <pre>
+
 ### **What tech stack you plan on using (example: using Tailwind for styling)**
 
 This game is built using HTML, CSS, JavaScript & Canvas.
 
 
 
- <pre>
- <pre>
+
 ### **Wireframes of your game**
 The minimum viable product (MVP) goal is for the user interface to show basic CSS in order for a functional game to be played (See example below)
 
@@ -48,15 +48,14 @@ The stretch goal is for the user interface and experience to mimic the graphics 
 
 
 
- <pre>
- <pre>
+
 ### **MVP Goals**
 
- <pre>
+
 ###### Style
 - [ ] Includes basic CSS in block form to ensure functionality works
 
- <pre>
+
 ###### Functionality
 - [ ] Includes a start button to activate the beginning of the game
 - [ ] Include one player functionality
@@ -68,15 +67,14 @@ The stretch goal is for the user interface and experience to mimic the graphics 
 
 
 
- <pre>
- <pre>
+
 ### **Stretch Goals**
 
- <pre>
+
 ###### Style
 - Includes CSS & Canvas styling to match that of SkiFree
 
- <pre>
+
 ###### Functionality
 - Include health score tracker with three (3) lives, meaning with each crash, you lose one life.
 - Ability to pick up a pretzel or beer on the way down to  add another life.
@@ -88,8 +86,7 @@ The stretch goal is for the user interface and experience to mimic the graphics 
 
 
 
- <pre>
- <pre>
+
 ### **Any potential roadblocks**
 - How to create a gameboard that is longer than the screen seen at the start
 
