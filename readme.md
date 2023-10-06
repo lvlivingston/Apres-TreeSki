@@ -44,14 +44,14 @@ The minimum viable product (MVP) goal is for the user interface to show basic CS
 ![Start Screen](gameStart.png)
 
 ###### During Gameplay
-![During Game](duringGame.png)
+![During Game](middleOfGame.png)
 
-![Last 10 Seconds](lastSeconds.png)
+![Last 10 Seconds](lastTenSeconds.png)
 
 ###### End Screens for Winner vs. Loser
 ![Winner](winnerScreen.png)
 
-![Loser](loserScreen.png)
+![Loser](loser.png)
 
 The stretch goal is for the user interface and experience to mimic the graphics and style of the original computer game from 1991.
 
