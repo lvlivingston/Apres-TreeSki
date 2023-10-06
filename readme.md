@@ -9,7 +9,7 @@ Created by Leah Livingston
 
 Do you remember Chris Pirih's classic 1991 computer game ["SkiFree"](https://classicreload.com/win3x-skifree.html#)? If you enjoyed running from the abominal snowman back then, you'll love this version set in the Austrian Alps!
 
-Click the []"Auf geht's!"](https://www.gymglish.com/en/wunderbla/german-vocabulary/auf-gehts) button when you're ready to ski.
+Click the ["Auf geht's!"](https://www.gymglish.com/en/wunderbla/german-vocabulary/auf-gehts) button when you're ready to ski.
 You've won when your skier makes it to the bottom of the ski slope just in time to make the train home!
 
 ###### Setting the scene
