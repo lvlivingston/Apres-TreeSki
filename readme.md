@@ -40,20 +40,25 @@ The goal is for the user interface and experience to mimic the graphics and styl
 ### **MVP Goals**
 
 ###### Style
-[ ]Includes basic CSS in block form to ensure functionality works
+- [ ] Includes basic CSS in block form to ensure functionality works
 
 ###### Functionality
-[ ]Includes a start button to activate the beginning of the game
-[ ]Include one player functionality
-[ ]Include function to allow player to move via the keyboard's arrow keys (or using the computer mouse)
-[ ]Include obstacles (placed randomly) 
-[ ]Include countdown timer
-[ ]Include finish line for player to win
-[ ]Include a start over button to reset game from the top
+- [ ] Includes a start button to activate the beginning of the game
+- [ ] Include one player functionality
+- [ ] Include function to allow player to move via the keyboard's arrow keys (or using the computer mouse)
+- [ ] Include obstacles (placed randomly) 
+- [ ] Include countdown timer
+- [ ] Include finish line for player to win
+- [ ] Include a start over button to reset game from the top
 
 
 
 ### **Stretch Goals**
+
+###### Style
+- Includes CSS & Canvas styling to match that of SkiFree
+
+###### Functionality
 - Include health score tracker with three (3) lives, meaning with each crash, you lose one life.
 - Ability to pick up a pretzel or beer on the way down to  add another life.
 - Include moving obstacles i.e. other skiers/snowboarders, animals, etc.
