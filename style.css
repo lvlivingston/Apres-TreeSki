@@ -1,0 +1,106 @@
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+}
+
+#container {
+    display: grid;
+    justify-content: flex-start;
+    height: 90vmin;
+    width: 100vmin;
+    background-color: white;
+    padding: 2em;
+    grid-template-rows: 1fr;
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas: "canvas canvas canvas infoBox"
+                        "canvas canvas canvas infoBox"
+                        "canvas canvas canvas infoBox";
+    }
+
+#infoBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    max-width: 100em;
+    max-height: 100em;
+    border-style: solid;
+    border-color: black;
+}
+
+h2 {
+    margin: 3px;
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 2em;
+    text-align: center;
+    flex-grow: 1;
+}
+
+img {
+    width: 30%;
+    align-self: center;
+    padding: 4px 0px;
+    flex-grow: .3;
+}
+
+#intro {
+    margin: 0;
+    font-family: 'Noto Serif Display', serif;
+    font-size: 1em;
+    font-size: calc(8px + 0.390625vw);
+    padding-bottom: 8px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.directions {
+    font-family: 'Noto Serif Display', serif;
+    font-size: 1em;
+    font-style: italic;
+    font-size: calc(8px + 0.390625vw);
+    text-align: center;
+    flex-grow: 1;
+}
+
+.timer {
+    font-family: 'Noto Serif Display', serif;
+    font-style: bold;
+    font-size: 1.5em;
+    font-size: calc(12px + 0.390625vw);
+    text-align: center;
+    flex-grow: 1;
+    /* padding-top: 20px;
+    padding-bottom: 20px; */
+}
+
+#timer {
+    padding-top: 20px;
+}
+
+#counter {
+    padding-bottom: 20px;
+}
+
+button {
+    background-color: #4CAF50;
+    box-shadow: 30%;
+    border: none;
+    /* outline: inherit; */
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 1.5em;
+    margin: 4px 2px;
+    cursor: pointer;
+    flex-grow: 1;
+}
+
+button:hover {
+    background-color: #217224;
+}

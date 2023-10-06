@@ -4,11 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Austrian SkiFree</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Noto+Serif+Display:ital,wght@0,300;1,100&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="container">
-    <aside id="infoBox"><h2>Austrian SkiFree</h2></aside>
+    <main>
+        <canvas id="canvas"></canvas>
+    </main>
+    <aside id="infoBox">
+        <h2>Austrian SkiFree</h2>
+        <img src="austrianFlag.png" alt="Austrian Flag">
+        <div id="intro">After skiing all morning, you spent the afternoon in the Stúbe hut drinking during après-ski. The last train home is in ten minutes, so you're cutting it close. It's time to ski down the hill as quickly as possible to make it back home.</div>
+        <div class="directions">To Ski:</div>
+        <div class="directions">Hit "J" key to go left </div>
+        <div class="directions">Hit "K" key to go down </div>
+        <div class="directions">Hit "L" key to go right </div>
+        <div class="directions">Click "Auf geht's!" to start</div>
+        <div id="timer" class="timer">The train leaves in:</div>
+        <div id="counter" class="timer">1:00</span></div>
+        <button>Auf geht's!</button>
+
+    </aside>
   </div>
   <script src="js/main.js"></script>
 </body>
