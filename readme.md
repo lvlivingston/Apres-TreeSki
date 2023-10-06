@@ -38,9 +38,20 @@ This game is built using HTML, CSS, JavaScript & Canvas.
 
 
 ### **Wireframes of your game**
-The minimum viable product (MVP) goal is for the user interface to show basic CSS in order for a functional game to be played (See example below)
+The minimum viable product (MVP) goal is for the user interface to show basic CSS in order for a functional game to be played.
 
-![Screenshot of Basic CSS](basicwireframe.png)
+###### Starting Screen
+![Start Screen](gameStart.png)
+
+###### During Gameplay
+![During Game](duringGame.png)
+
+![Last 10 Seconds](lastSeconds.png)
+
+###### End Screens for Winner vs. Loser
+![Winner](winnerScreen.png)
+
+![Loser](loserScreen.png)
 
 The stretch goal is for the user interface and experience to mimic the graphics and style of the original computer game from 1991.
 
