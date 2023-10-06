@@ -1,6 +1,9 @@
-//An elevator pitch of your game idea***********
+#h1**Project 1 - A Browser Based Game**
+#h3Created by Leah Livingston
 
-Do you remember Chris Pirih's classic 1991 computer game !["SkiFree"[(https://classicreload.com/win3x-skifree.html#)? If you enjoyed running from the abominal snowman back then, you'll love this version set in the Austrian Alps.
+#h5**An elevator pitch of your game idea**
+
+Do you remember Chris Pirih's classic 1991 computer game ["SkiFree"](https://classicreload.com/win3x-skifree.html#)? If you enjoyed running from the abominal snowman back then, you'll love this version set in the Austrian Alps.
 
 Click the "Auf geht's!" button when you're ready to ski.
 You've won when your skier makes it to the bottom of the ski slope just in time to make the train home!
@@ -19,19 +22,20 @@ Ski down the hill in under one minute, and you win!
 
 
 
-//What tech stack you plan on using (example: using Tailwind for styling)***********
+#h5**What tech stack you plan on using (example: using Tailwind for styling)**
 
 This game is built using HTML, CSS, JavaScript & Canvas.
 
 
 
-//Wireframes of your game***********
+#h5**Wireframes of your game**
 The goal is for the user interface and experience to mimic the graphics and style of the original computer game from 1991.
+
 ![Screenshot of SkiFree](skiFree.png)
 
 
 
-//MVP Goals***********
+#h5**MVP Goals**
 
 ---Style---
 - Includes 
@@ -46,7 +50,7 @@ The goal is for the user interface and experience to mimic the graphics and styl
 - Include a start over button to reset game from the top
 
 
-//Stretch Goals***********
+#h5**Stretch Goals**
 - Include health score tracker with three (3) lives, meaning with each crash, you lose one life.
 - Ability to pick up a pretzel or beer on the way down to  add another life.
 - Include moving obstacles i.e. other skiers/snowboarders, animals, etc.
