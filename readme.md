@@ -1,8 +1,8 @@
-# H1 **Project 1 - A Browser Based Game**
+# **Project 1 - A Browser Based Game**
 
-# H3 Created by Leah Livingston
+### Created by Leah Livingston
 
-# H5 **An elevator pitch of your game idea**
+##### **An elevator pitch of your game idea**
 
 Do you remember Chris Pirih's classic 1991 computer game ["SkiFree"](https://classicreload.com/win3x-skifree.html#)? If you enjoyed running from the abominal snowman back then, you'll love this version set in the Austrian Alps.
 
@@ -23,20 +23,20 @@ Ski down the hill in under one minute, and you win!
 
 
 
-# H5 **What tech stack you plan on using (example: using Tailwind for styling)**
+#### **What tech stack you plan on using (example: using Tailwind for styling)**
 
 This game is built using HTML, CSS, JavaScript & Canvas.
 
 
 
-#h5**Wireframes of your game**
+#### **Wireframes of your game**
 The goal is for the user interface and experience to mimic the graphics and style of the original computer game from 1991.
 
 ![Screenshot of SkiFree](skiFree.png)
 
 
 
-# H5 **MVP Goals**
+#### **MVP Goals**
 
 ---Style---
 - Includes 
@@ -52,7 +52,7 @@ The goal is for the user interface and experience to mimic the graphics and styl
 
 
 
-# H5 **Stretch Goals**
+#### **Stretch Goals**
 - Include health score tracker with three (3) lives, meaning with each crash, you lose one life.
 - Ability to pick up a pretzel or beer on the way down to  add another life.
 - Include moving obstacles i.e. other skiers/snowboarders, animals, etc.
@@ -62,6 +62,6 @@ The goal is for the user interface and experience to mimic the graphics and styl
 - Ability to play on mobile (reacts to touch events)
 
 
-# H5 **Any potential roadblocks**
+#### **Any potential roadblocks**
 - How to create a gameboard that is longer than the screen seen at the start
 
