@@ -24,7 +24,8 @@ class Player {
         ctx.fillRect(this.x, this.y, this.width, this.height);
     }
 }
-
+const testPlayer = new Player(45, 45, 65, 23, "green");
+testPlayer.render();
 const skier = new Player(100, 50, 30, 70, "#217224");
 
 
