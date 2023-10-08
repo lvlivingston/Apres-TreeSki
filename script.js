@@ -27,8 +27,13 @@ class Player {
     }
 }
 
-const skier = new Player(50, 50, 30, 70, "blue");
-console.log(skier);
+const skier = new Player(230, 100, 30, 60, "blue");
+const trees = [
+    new Player(50 + Math.random() * 100, 150 +  Math.random() * 200, 25, 75, "#217224"),
+    new Player(100 + Math.random() * 100, 200 +  Math.random() * 200, 50, 100, "#217224"),
+    new Player(300 + Math.random() * 100, 250 +  Math.random() * 200, 75, 125, "#217224"),
+    new Player(200 + Math.random() * 100, 300 +  Math.random() * 200, 25, 100, "#217224")
+]
 
 
 
@@ -76,11 +81,23 @@ function gameloop() {
     movementHandler();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     skier.render();
+    let randomTreePath = true
+    for (let i = 0; i < trees.length; i++) {
+        if (trees[i].enoughTime) {
+            trees[i].render();
+        }
+        // if (detectHit(hero, trees[i])) {
+        //     trees[i].enoughTime = false;
+        // }
+        if (trees[i].enoughTime) {
+            randomTreePath = false;
+        }
+    }
 }
 
 /* ----- EVENT LISTENERS ---- */
 canvas.addEventListener('click', e => {
-    movement.innerText = `x: ${e.offsetX}, y: ${e.offsetY}`;
+    // movement.innerText = `x: ${e.offsetX}, y: ${e.offsetY}`;
     drawBox(e.offsetX, e.offsetY, 30, 30, "#C724B1")
 });
 
