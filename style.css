@@ -21,6 +21,13 @@ body {
                         "canvas canvas canvas infoBox";
 }
 
+#canvas {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding-right: -20px;
+}
+
 #infoBox {
     display: flex;
     flex-direction: column;
