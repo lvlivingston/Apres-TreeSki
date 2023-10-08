@@ -36,7 +36,7 @@ const trees = [
     new Player(200 + Math.random() * 100, 300 +  Math.random() * 200, 25, 100, "#217224")
 ]
 const hut = new Player(0,0, 100, 100, "brown");
-// const trainStation = 
+const train = new Player(300, 300, 300, 100, "purple")
 
 
 
@@ -88,21 +88,20 @@ function gameloop() {
     let randomTreePath = true
     for (let i = 0; i < trees.length; i++) {
         if (trees[i].enoughTime) {
+            //need to add functionality that skier can't move until the "auf geht's" button is clicked
             if (currentlyPressedKeys["k"]) {
                 trees[i].y -= 10;
             }
-            if (trees[i].y + trees[i].height === 0) {
-                trees[i].width = 200;
-            }   
+            // need to add scrolling tree in canvas, so make sure that when any tree hits the top of the canvas, a new tree appears a random at the bottom of the canvas to simulate a ski slope
+            // if (trees[i].y === 0) {
+            //     trees[i].width = 200;
+            // }   
             trees[i].render();
         }  
     }
-    // if (trees[i].enoughTime) {
-    //     randomTreePath = false;
-    // }
 }
 
-//at 55 seconds, set train station to true, if true render train station
+//at 0.5 seconds left on the timer, stop rendering trees and render the train station.
 
 
 /* ----- EVENT LISTENERS ---- */
@@ -112,29 +111,23 @@ startButton.addEventListener("click", startCountdown);
 function startCountdown() {
     startButton.disabled = true;
     let timeRemaining = 60;
-
     function updateTimer() {
         const counterElement = document.getElementById("counter");
         const timerElement = document.getElementById("timer");
-
         const minutes = Math.floor(timeRemaining / 60);
         const seconds = timeRemaining % 60;
-
         counterElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
         timeRemaining--;
-
         if (timeRemaining < 0) {
-            // Hide the timer element
             timerElement.hidden = true;
-            // Display "Time's up!" in red with 20px padding above it
             counterElement.textContent = "Time's up!";
             counterElement.style.color = 'red';
             counterElement.style.paddingTop = '20px';
+        // add that the "auf geht's" button disappears and the new "Play again" button appears and restarts the timer at 1:00    
         } else {
             setTimeout(updateTimer, 1000);
         }
     }
-
     updateTimer();
 }
 
