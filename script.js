@@ -1,5 +1,6 @@
 /* ----- DOM SELECTORS ------ */
 const movement = document.querySelector("#movement");
+const startButton = document.getElementById("startButton");
 const canvas = document.querySelector("canvas");
 
 /* ----- CANVAS SETUP ------- */
@@ -34,6 +35,8 @@ const trees = [
     new Player(300 + Math.random() * 100, 250 +  Math.random() * 200, 75, 125, "#217224"),
     new Player(200 + Math.random() * 100, 300 +  Math.random() * 200, 25, 100, "#217224")
 ]
+const hut = new Player(0,0, 100, 100, "brown");
+// const trainStation = 
 
 
 
@@ -81,25 +84,59 @@ function gameloop() {
     movementHandler();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     skier.render();
+    hut.render();
     let randomTreePath = true
     for (let i = 0; i < trees.length; i++) {
         if (trees[i].enoughTime) {
+            if (currentlyPressedKeys["k"]) {
+                trees[i].y -= 10;
+            }
+            if (trees[i].y + trees[i].height === 0) {
+                trees[i].width = 200;
+            }   
             trees[i].render();
-        }
-        // if (detectHit(hero, trees[i])) {
-        //     trees[i].enoughTime = false;
-        // }
-        if (trees[i].enoughTime) {
-            randomTreePath = false;
-        }
+        }  
     }
+    // if (trees[i].enoughTime) {
+    //     randomTreePath = false;
+    // }
 }
 
+//at 55 seconds, set train station to true, if true render train station
+
+
 /* ----- EVENT LISTENERS ---- */
-canvas.addEventListener('click', e => {
-    // movement.innerText = `x: ${e.offsetX}, y: ${e.offsetY}`;
-    drawBox(e.offsetX, e.offsetY, 30, 30, "#C724B1")
-});
+
+startButton.addEventListener("click", startCountdown);
+
+function startCountdown() {
+    startButton.disabled = true;
+    let timeRemaining = 60;
+
+    function updateTimer() {
+        const counterElement = document.getElementById("counter");
+        const timerElement = document.getElementById("timer");
+
+        const minutes = Math.floor(timeRemaining / 60);
+        const seconds = timeRemaining % 60;
+
+        counterElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        timeRemaining--;
+
+        if (timeRemaining < 0) {
+            // Hide the timer element
+            timerElement.hidden = true;
+            // Display "Time's up!" in red with 20px padding above it
+            counterElement.textContent = "Time's up!";
+            counterElement.style.color = 'red';
+            counterElement.style.paddingTop = '20px';
+        } else {
+            setTimeout(updateTimer, 1000);
+        }
+    }
+
+    updateTimer();
+}
 
 document.addEventListener('keydown', e => currentlyPressedKeys[e.key] = true);
 document.addEventListener('keyup', e => currentlyPressedKeys[e.key] = false);
