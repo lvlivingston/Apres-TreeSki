@@ -32,10 +32,13 @@ const skier = new Player(230, 100, 30, 60, "blue");
 const trees = [
     new Player(50 + Math.random() * 100, 150 +  Math.random() * 200, 25, 75, "#217224"),
     new Player(100 + Math.random() * 100, 200 +  Math.random() * 200, 50, 100, "#217224"),
-    new Player(300 + Math.random() * 100, 250 +  Math.random() * 200, 75, 125, "#217224"),
-    new Player(400 + Math.random() * 100, 300 +  Math.random() * 200, 25, 100, "#217224"),
-    new Player(500 + Math.random() * 100, 350 +  Math.random() * 200, 50, 125, "#217224"),
-    new Player(600 + Math.random() * 100, 400 +  Math.random() * 200, 75, 150, "#217224")
+    new Player(150 + Math.random() * 100, 250 +  Math.random() * 200, 75, 125, "#217224"),
+    new Player(200 + Math.random() * 100, 300 +  Math.random() * 200, 25, 75, "#217224"),
+    new Player(250 + Math.random() * 100, 350 +  Math.random() * 200, 50, 100, "#217224"),
+    new Player(300 + Math.random() * 100, 400 +  Math.random() * 200, 75, 125, "#217224"),
+    new Player(350 + Math.random() * 100, 350 +  Math.random() * 200, 25, 75, "#217224"),
+    new Player(400 + Math.random() * 100, 350 +  Math.random() * 200, 50, 100, "#217224"),
+    new Player(450 + Math.random() * 100, 350 +  Math.random() * 200, 75, 125, "#217224"),
 ]
 const hut = new Player(0,0, 100, 100, "brown");
 const train = new Player(300, 300, 300, 100, "purple")
@@ -50,7 +53,7 @@ function drawBox(x, y, width, height, color) {
 
 const currentlyPressedKeys = {}
 function movementHandler() {
-    const speed = 10;
+    const speed = 15;
     if (currentlyPressedKeys["i"]) {
         let isDiagnal = false;
         if (currentlyPressedKeys["j"] || currentlyPressedKeys["l"]) {
@@ -63,7 +66,9 @@ function movementHandler() {
         if (currentlyPressedKeys["j"] || currentlyPressedKeys["l"]) {
             isDiagnal = true;
         }
-        skier.y += isDiagnal ? speed * .75 : speed;
+        if (skier.y < 300) {
+            skier.y += isDiagnal ? speed * 0.75 : speed;
+        }
     } 
     if (currentlyPressedKeys["j"]) {
         let isDiagnal = false;
