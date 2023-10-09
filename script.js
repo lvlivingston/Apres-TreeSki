@@ -33,7 +33,9 @@ const trees = [
     new Player(50 + Math.random() * 100, 150 +  Math.random() * 200, 25, 75, "#217224"),
     new Player(100 + Math.random() * 100, 200 +  Math.random() * 200, 50, 100, "#217224"),
     new Player(300 + Math.random() * 100, 250 +  Math.random() * 200, 75, 125, "#217224"),
-    new Player(200 + Math.random() * 100, 300 +  Math.random() * 200, 25, 100, "#217224")
+    new Player(400 + Math.random() * 100, 300 +  Math.random() * 200, 25, 100, "#217224"),
+    new Player(500 + Math.random() * 100, 350 +  Math.random() * 200, 50, 125, "#217224"),
+    new Player(600 + Math.random() * 100, 400 +  Math.random() * 200, 75, 150, "#217224")
 ]
 const hut = new Player(0,0, 100, 100, "brown");
 const train = new Player(300, 300, 300, 100, "purple")
@@ -92,10 +94,9 @@ function gameloop() {
             if (currentlyPressedKeys["k"]) {
                 trees[i].y -= 10;
             }
-            // need to add scrolling tree in canvas, so make sure that when any tree hits the top of the canvas, a new tree appears a random at the bottom of the canvas to simulate a ski slope
-            // if (trees[i].y === 0) {
-            //     trees[i].width = 200;
-            // }   
+            if (trees[i].y < 150) {
+                return trees[i].y = canvas.height;
+            }  
             trees[i].render();
         }  
     }
