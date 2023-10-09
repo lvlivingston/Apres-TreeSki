@@ -92,7 +92,7 @@ img {
 
 button {
     background-color: #4CAF50;
-    box-shadow: 30%;
+    box-shadow: 50%;
     border: none;
     /* outline: inherit; */
     color: white;
@@ -108,4 +108,24 @@ button {
 
 button:hover {
     background-color: #217224;
+}
+
+#tryAgainButton {
+    background-color: #24a0ed;
+    box-shadow: 50%;
+    border: none;
+    /* outline: inherit; */
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 2vmin;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#tryAgainButton:hover {
+    background-color: #0f8bd9;
 }
