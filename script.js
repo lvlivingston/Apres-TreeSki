@@ -1,6 +1,7 @@
 /* ----- DOM SELECTORS ------ */
 const movement = document.querySelector("#movement");
 const startButton = document.getElementById("startButton");
+const tryAgainButton = document.getElementById("tryAgainButton");
 const canvas = document.querySelector("canvas");
 const counterElement = document.getElementById("counter");
 const timerElement = document.getElementById("timer");
@@ -68,21 +69,24 @@ function drawBox(x, y, width, height, color) {
 
 const currentlyPressedKeys = {}
 function movementHandler() {
+    //need to figure out why skier only moving faster above 200px on y-axisjklkjlkjlkjlkkjlkjlkj
     const speed = 20;
-    if (currentlyPressedKeys["i"]) {
+    if (timeRemaining <= 5) {
+        skier.y += speed;
+    } else if (currentlyPressedKeys["i"]) {
         let isDiagnal = false;
         if (currentlyPressedKeys["j"] || currentlyPressedKeys["l"]) {
             isDiagnal = true;
         }
-        skier.y -= isDiagnal ? speed * .75 : speed;
+        skier.y -= isDiagnal ? speed : speed;
     } 
     if (currentlyPressedKeys["k"]) {
         let isDiagnal = false;
         if (currentlyPressedKeys["j"] || currentlyPressedKeys["l"]) {
             isDiagnal = true;
         }
-        if (skier.y < 300) {
-            skier.y += isDiagnal ? speed * 0.75 : speed;
+        if (skier.y < (canvas.height/2)) {
+            skier.y += isDiagnal ? speed : speed;
         }
     } 
     if (currentlyPressedKeys["j"]) {
@@ -90,14 +94,14 @@ function movementHandler() {
         if (currentlyPressedKeys["i"] || currentlyPressedKeys["l"]) {
             isDiagnal = true;
         }
-        skier.x -= isDiagnal ? speed * .75 : speed;
+        skier.x -= isDiagnal ? speed : speed;
     } 
     if (currentlyPressedKeys["l"]) {
         let isDiagnal = false;
         if (currentlyPressedKeys["i"] || currentlyPressedKeys["k"]) {
             isDiagnal = true;
         }
-        skier.x += isDiagnal ? speed * .75 : speed;
+        skier.x += isDiagnal ? speed : speed;
     } 
 }
 
@@ -124,20 +128,17 @@ function gameloop() {
         hut.render();
     }
     for (let i = 0; i < trees.length; i++) {
-        //need to add functionality that skier can't move until the "auf geht's" button is clicked
         if (currentlyPressedKeys["k"]) {
             trees[i].y -= 10;
         }
-        if (trees[i].y < 0 - trees[i].height) {
+        if (trees[i].y < 0 - trees[i].height && timeRemaining > 5) {
             trees[i].y = canvas.height;
         }
-        if (timeRemaining >= 5) {
-            trees[i].render();
-        }  
+        trees[i].render();
     }
     if (timeRemaining <= 5) {
-        train.render();
-    }
+            train.render();
+        }
     skier.render();
 }
 
@@ -153,14 +154,24 @@ function startCountdown() {
             counterElement.textContent = "Time's up!";
             counterElement.style.color = 'red';
             counterElement.style.paddingTop = '20px';
+            tryAgainButton.style.display = "inline-block";
         // add that the "auf geht's" button disappears and the new "Play again" button appears and restarts the timer at 1:00    
         } else {
-            setTimeout(updateTimer, 1000);
+            setTimeout(updateTimer, 500);
         }
     }
     updateTimer();
 }
 
+function resetGame() {
+    gameStarted = false;
+    timeRemaining = 60;
+    hut.render();
+    skier.render();
+    for (let i = 0; i < trees.length; i++) {
+            trees[i].render();
+    }
+}
 
 /* ----- EVENT LISTENERS ---- */
 
@@ -169,6 +180,12 @@ startButton.addEventListener("click", function() {
     skier.x = 230;
     skier.y = 100;
     startCountdown();
+    startButton.style.display = "none";
+});
+
+tryAgainButton.addEventListener("click", function() {
+    resetGame();
+    tryAgainButton.style.display = "none";
 });
 
 document.addEventListener('keydown', e => currentlyPressedKeys[e.key] = true);
