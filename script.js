@@ -68,7 +68,7 @@ function drawBox(x, y, width, height, color) {
 
 const currentlyPressedKeys = {}
 function movementHandler() {
-    const speed = 15;
+    const speed = 20;
     if (currentlyPressedKeys["i"]) {
         let isDiagnal = false;
         if (currentlyPressedKeys["j"] || currentlyPressedKeys["l"]) {
@@ -103,6 +103,14 @@ function movementHandler() {
 
 const gameInterval = setInterval(gameloop, 80);
 function gameloop() {
+    if (!gameStarted) {
+        hut.render();
+        skier.render();
+        for (let i = 0; i < trees.length; i++) {
+            trees[i].render();
+        }
+        return;
+    }
     movementHandler();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     let randomTreePath = true;
@@ -158,9 +166,10 @@ function startCountdown() {
 
 startButton.addEventListener("click", function() {
     gameStarted = true;
+    skier.x = 230;
+    skier.y = 100;
     startCountdown();
 });
-
 
 document.addEventListener('keydown', e => currentlyPressedKeys[e.key] = true);
 document.addEventListener('keyup', e => currentlyPressedKeys[e.key] = false);
