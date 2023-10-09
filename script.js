@@ -35,24 +35,24 @@ class Player {
 
 const skier = new Player(230, 100, 30, 60, "blue");
 const trees = [
-    new Player(Math.random() * canvas.width - 25, Math.random() * canvas.height, 25, 75, "#217224"),
-    new Player(Math.random() * canvas.width - 50, Math.random() * canvas.height, 50, 100, "#217224"),
-    new Player(Math.random() * canvas.width - 75, Math.random() * canvas.height, 75, 125, "#217224"),
-    new Player(Math.random() * canvas.width - 25, Math.random() * canvas.height, 25, 75, "#217224"),
-    new Player(Math.random() * canvas.width - 50, Math.random() * canvas.height, 50, 100, "#217224"),
-    new Player(Math.random() * canvas.width - 75, Math.random() * canvas.height, 75, 125, "#217224"),
-    new Player(Math.random() * canvas.width - 25, Math.random() * canvas.height, 25, 75, "#217224"),
-    new Player(Math.random() * canvas.width - 50, Math.random() * canvas.height, 50, 100, "#217224"),
-    new Player(Math.random() * canvas.width - 75, Math.random() * canvas.height, 75, 125, "#217224"),
-    new Player(Math.random() * canvas.width - 25, Math.random() * canvas.height, 25, 75, "#217224"),
-    new Player(Math.random() * canvas.width - 50, Math.random() * canvas.height, 50, 100, "#217224"),
-    new Player(Math.random() * canvas.width - 75, Math.random() * canvas.height, 75, 125, "#217224"),
-    new Player(Math.random() * canvas.width - 25, Math.random() * canvas.height, 25, 75, "#217224"),
-    new Player(Math.random() * canvas.width - 50, Math.random() * canvas.height, 50, 100, "#217224"),
-    new Player(Math.random() * canvas.width - 75, Math.random() * canvas.height, 75, 125, "#217224"),
-    new Player(Math.random() * canvas.width - 25, Math.random() * canvas.height, 25, 75, "#217224"),
-    new Player(Math.random() * canvas.width - 50, Math.random() * canvas.height, 50, 100, "#217224"),
-    new Player(Math.random() * canvas.width - 75, Math.random() * canvas.height, 75, 125, "#217224"),
+    new Player(Math.random() * canvas.width - 25, Math.random() * canvas.height + 200, 25, 75, "#217224"),
+    new Player(Math.random() * canvas.width - 50, Math.random() * canvas.height + 200, 50, 100, "#217224"),
+    new Player(Math.random() * canvas.width - 75, Math.random() * canvas.height + 200, 75, 125, "#217224"),
+    new Player(Math.random() * canvas.width - 25, Math.random() * canvas.height + 200, 25, 75, "#217224"),
+    new Player(Math.random() * canvas.width - 50, Math.random() * canvas.height + 200, 50, 100, "#217224"),
+    new Player(Math.random() * canvas.width - 75, Math.random() * canvas.height + 200, 75, 125, "#217224"),
+    new Player(Math.random() * canvas.width - 25, Math.random() * canvas.height + 200, 25, 75, "#217224"),
+    new Player(Math.random() * canvas.width - 50, Math.random() * canvas.height + 200, 50, 100, "#217224"),
+    new Player(Math.random() * canvas.width - 75, Math.random() * canvas.height + 200, 75, 125, "#217224"),
+    new Player(Math.random() * canvas.width - 25, Math.random() * canvas.height + 200, 25, 75, "#217224"),
+    new Player(Math.random() * canvas.width - 50, Math.random() * canvas.height + 200, 50, 100, "#217224"),
+    new Player(Math.random() * canvas.width - 75, Math.random() * canvas.height + 200, 75, 125, "#217224"),
+    new Player(Math.random() * canvas.width - 25, Math.random() * canvas.height + 200, 25, 75, "#217224"),
+    new Player(Math.random() * canvas.width - 50, Math.random() * canvas.height + 200, 50, 100, "#217224"),
+    new Player(Math.random() * canvas.width - 75, Math.random() * canvas.height + 200, 75, 125, "#217224"),
+    new Player(Math.random() * canvas.width - 25, Math.random() * canvas.height + 200, 25, 75, "#217224"),
+    new Player(Math.random() * canvas.width - 50, Math.random() * canvas.height + 200, 50, 100, "#217224"),
+    new Player(Math.random() * canvas.width - 75, Math.random() * canvas.height + 200, 75, 125, "#217224"),
 ]
 const hut = new Player(0,0, 100, 100, "brown");
 const train = new Player(canvas.width - 320, canvas.height - 100, 300, 100, "purple")
@@ -136,8 +136,6 @@ function gameloop() {
 function startCountdown() {
     startButton.disabled = true;
     function updateTimer() {
-        // const counterElement = document.getElementById("counter");
-        // const timerElement = document.getElementById("timer");
         const minutes = Math.floor(timeRemaining / 60);
         const seconds = timeRemaining % 60;
         counterElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
