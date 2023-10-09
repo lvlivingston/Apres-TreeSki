@@ -13,6 +13,8 @@ canvas.setAttribute("width", getComputedStyle(canvas).width);
 
 
 /* ----- CLASSES ------------ */
+let enoughTime = true;
+
 class Player {
     constructor(x, y, width, height, color) {
         this.x = x;
@@ -30,22 +32,23 @@ class Player {
 
 const skier = new Player(230, 100, 30, 60, "blue");
 const trees = [
-    new Player(50 + Math.random() * 100, 150 +  Math.random() * 200, 25, 75, "#217224"),
-    new Player(100 + Math.random() * 100, 200 +  Math.random() * 200, 50, 100, "#217224"),
-    new Player(150 + Math.random() * 100, 250 +  Math.random() * 200, 75, 125, "#217224"),
-    new Player(200 + Math.random() * 100, 300 +  Math.random() * 200, 25, 75, "#217224"),
-    new Player(250 + Math.random() * 100, 350 +  Math.random() * 200, 50, 100, "#217224"),
-    new Player(300 + Math.random() * 100, 400 +  Math.random() * 200, 75, 125, "#217224"),
-    new Player(350 + Math.random() * 100, 350 +  Math.random() * 200, 25, 75, "#217224"),
-    new Player(400 + Math.random() * 100, 350 +  Math.random() * 200, 50, 100, "#217224"),
-    new Player(450 + Math.random() * 100, 350 +  Math.random() * 200, 75, 125, "#217224"),
+    new Player(Math.random() * canvas.width - 25, Math.random() * canvas.height, 25, 75, "#217224"),
+    new Player(Math.random() * canvas.width - 50, Math.random() * canvas.height, 50, 100, "#217224"),
+    new Player(Math.random() * canvas.width - 75, Math.random() * canvas.height, 75, 125, "#217224"),
+    new Player(Math.random() * canvas.width - 25, Math.random() * canvas.height, 25, 75, "#217224"),
+    new Player(Math.random() * canvas.width - 50, Math.random() * canvas.height, 50, 100, "#217224"),
+    new Player(Math.random() * canvas.width - 75, Math.random() * canvas.height, 75, 125, "#217224"),
+    new Player(Math.random() * canvas.width - 25, Math.random() * canvas.height, 25, 75, "#217224"),
+    new Player(Math.random() * canvas.width - 50, Math.random() * canvas.height, 50, 100, "#217224"),
+    new Player(Math.random() * canvas.width - 75, Math.random() * canvas.height, 75, 125, "#217224"),
 ]
 const hut = new Player(0,0, 100, 100, "brown");
 const train = new Player(300, 300, 300, 100, "purple")
 
-
-
 /* ----- FUNCTIONS ---------- */
+hut.enoughTime = true;
+train.enoughTime = false;
+
 function drawBox(x, y, width, height, color) {
     ctx.fillStyle = color;
     ctx.fillRect(x, y, width, height);
@@ -90,21 +93,29 @@ const gameInterval = setInterval(gameloop, 80);
 function gameloop() {
     movementHandler();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    skier.render();
-    hut.render();
-    let randomTreePath = true
+    let randomTreePath = true;
+    if (hut.enoughTime) {
+        if (currentlyPressedKeys["k"]) {
+            hut.y -= 10;
+        }
+        if (hut.y + hut.height < 0) {
+            hut.enoughTime = false; 
+        }
+        hut.render();
+    }
     for (let i = 0; i < trees.length; i++) {
-        if (trees[i].enoughTime) {
+        // if (trees[i].enoughTime) {
             //need to add functionality that skier can't move until the "auf geht's" button is clicked
             if (currentlyPressedKeys["k"]) {
                 trees[i].y -= 10;
             }
-            if (trees[i].y < 150) {
-                return trees[i].y = canvas.height;
+            if (trees[i].y < 0 - trees[i].height) {
+                trees[i].y = canvas.height;
             }  
-            trees[i].render();
-        }  
+        // }  
+        trees[i].render();
     }
+    skier.render();
 }
 
 //at 0.5 seconds left on the timer, stop rendering trees and render the train station.
