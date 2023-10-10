@@ -11,9 +11,6 @@ const ctx = canvas.getContext("2d");
 canvas.setAttribute("height", getComputedStyle(canvas).height);
 canvas.setAttribute("width", getComputedStyle(canvas).width);
 
-
-
-
 /* ----- CLASSES ------------ */
 let gameStarted = false;
 let enoughTime = true;
@@ -61,11 +58,6 @@ const train = new Player(canvas.width - 320, canvas.height - 100, 300, 100, "pur
 /* ----- FUNCTIONS ---------- */
 hut.enoughTime = true;
 train.enoughTime = false;
-
-// function drawBox(x, y, width, height, color) {
-//     ctx.fillStyle = color;
-//     ctx.fillRect(x, y, width, height);
-// }
 
 function startGame() {
     console.log("click")
@@ -173,7 +165,7 @@ function startCountdown() {
 
 //need to add collision function for trees
 
-//figure out how to make the reset button work correctly
+//need to add collision function for train
 
 function resetGame() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -197,7 +189,6 @@ function resetGame() {
 }
 
 /* ----- EVENT LISTENERS ---- */
-
 startButton.addEventListener("click", startGame);
 
 tryAgainButton.addEventListener("click", function() {
