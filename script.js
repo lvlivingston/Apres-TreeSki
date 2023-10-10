@@ -72,9 +72,7 @@ const currentlyPressedKeys = {}
 function movementHandler() {
     //need to figure out why skier doesn't stop moving at end of the game
     const speed = 20;
-    if (timeRemaining <= 5) {
-        skier.y += speed;
-    } else if (currentlyPressedKeys["i"]) {
+    if (currentlyPressedKeys["i"]) {
         let isDiagnal = false;
         if (currentlyPressedKeys["j"] || currentlyPressedKeys["l"]) {
             isDiagnal = true;
@@ -104,6 +102,36 @@ function movementHandler() {
         }
         skier.x += isDiagnal ? speed : speed;
     } 
+    if (timeRemaining <= 5) {
+        if (currentlyPressedKeys["i"]) {
+            let isDiagnal = false;
+            if (currentlyPressedKeys["j"] || currentlyPressedKeys["l"]) {
+                isDiagnal = true;
+            }
+            skier.y -= isDiagnal ? speed : speed;
+        } 
+        if (currentlyPressedKeys["k"]) {
+            let isDiagnal = false;
+            if (currentlyPressedKeys["j"] || currentlyPressedKeys["l"]) {
+                isDiagnal = true;
+            }
+            skier.y += isDiagnal ? speed : speed;
+        } 
+        if (currentlyPressedKeys["j"]) {
+            let isDiagnal = false;
+            if (currentlyPressedKeys["i"] || currentlyPressedKeys["l"]) {
+                isDiagnal = true;
+            }
+            skier.x -= isDiagnal ? speed : speed;
+        } 
+        if (currentlyPressedKeys["l"]) {
+            let isDiagnal = false;
+            if (currentlyPressedKeys["i"] || currentlyPressedKeys["k"]) {
+                isDiagnal = true;
+            }
+            skier.x += isDiagnal ? speed : speed;
+        } 
+    }
 }
 
 const gameInterval = setInterval(gameloop, 80);
@@ -116,7 +144,6 @@ function gameloop() {
         }
         return;
     }
-    movementHandler();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     let randomTreePath = true;
     if (hut.enoughTime) {
@@ -138,8 +165,9 @@ function gameloop() {
         trees[i].render();
     }
     if (timeRemaining <= 5) {
-            train.render();
-        }
+        train.render();
+    }
+    movementHandler();
     skier.render();
 }
 
