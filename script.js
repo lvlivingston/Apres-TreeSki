@@ -17,6 +17,8 @@ let enoughTime = true;
 let timeRemaining = 60;
 let skiWinner = false;
 let countdownTimeout;
+let healthScore = 3;
+console.log(healthScore);
 
 class Player {
     constructor(x, y, width, height, color) {
@@ -70,62 +72,79 @@ function startGame() {
 const currentlyPressedKeys = {}
 function movementHandler() {
     const speed = 20;
-    let isDiagonal = false;
     if (currentlyPressedKeys["i"]) {
+        let isDiagonal = false;
         if (currentlyPressedKeys["j"] || currentlyPressedKeys["l"]) {
-            isDiagnal = true;
+            isDiagonal = true;
         }
-        skier.y -= isDiagnal ? speed : speed;
+        skier.y -= isDiagonal ? speed : speed;
     } 
     if (currentlyPressedKeys["k"]) {
+        let isDiagonal = false;
         if (currentlyPressedKeys["j"] || currentlyPressedKeys["l"]) {
-            isDiagnal = true;
+            isDiagonal = true;
         }
         if (skier.y < (canvas.height/2)) {
-            skier.y += isDiagnal ? speed : speed;
+            skier.y += isDiagonal ? speed : speed;
         }
     } 
     if (currentlyPressedKeys["j"]) {
+        let isDiagonal = false;
         if (currentlyPressedKeys["i"] || currentlyPressedKeys["l"]) {
-            isDiagnal = true;
+            isDiagonal = true;
         }
-        skier.x -= isDiagnal ? speed : speed;
+        skier.x -= isDiagonal ? speed : speed;
     } 
     if (currentlyPressedKeys["l"]) {
+        let isDiagonal = false;
         if (currentlyPressedKeys["i"] || currentlyPressedKeys["k"]) {
-            isDiagnal = true;
+            isDiagonal = true;
         }
-        skier.x += isDiagnal ? speed : speed;
+        skier.x += isDiagonal ? speed : speed;
     } 
     if (timeRemaining <= 5) {
         if (currentlyPressedKeys["i"]) {
+            let isDiagonal = false;
             if (currentlyPressedKeys["j"] || currentlyPressedKeys["l"]) {
-                isDiagnal = true;
+                isDiagonal = true;
             }
-            skier.y -= isDiagnal ? speed : speed;
+            skier.y -= isDiagonal ? speed : speed;
         } 
         if (currentlyPressedKeys["k"]) {
+            let isDiagonal = false;
             if (currentlyPressedKeys["j"] || currentlyPressedKeys["l"]) {
-                isDiagnal = true;
+                isDiagonal = true;
             }
-            skier.y += isDiagnal ? speed : speed;
+            skier.y += isDiagonal ? speed : speed;
         } 
         if (currentlyPressedKeys["j"]) {
+            let isDiagonal = false;
             if (currentlyPressedKeys["i"] || currentlyPressedKeys["l"]) {
-                isDiagnal = true;
+                isDiagonal = true;
             }
-            skier.x -= isDiagnal ? speed : speed;
+            skier.x -= isDiagonal ? speed : speed;
         } 
         if (currentlyPressedKeys["l"]) {
+            let isDiagonal = false;
             if (currentlyPressedKeys["i"] || currentlyPressedKeys["k"]) {
-                isDiagnal = true;
+                isDiagonal = true;
             }
-            skier.x += isDiagnal ? speed : speed;
+            skier.x += isDiagonal ? speed : speed;
         } 
     }
 }
 
 //STRETCH GOAL - Add collision function for trees to slow skier down
+function detectTreeHit(objectOne, objectTwo) {
+    const top = (objectOne.y + (objectOne.height * .75)) >= objectTwo.y;
+    const bottom = (objectOne.y + (objectOne.height * .25)) <= objectTwo.y + objectTwo.height;
+    const left = (objectOne.x + (objectOne.width * .75)) >= objectTwo.x;
+    const right = (objectOne.x + (objectOne.width* .25)) <= objectTwo.x + objectTwo.width;
+    if (top && bottom && left && right) {
+        return true
+    }
+    return false
+}
 
 function detectTrainHit(objectOne, objectTwo) {
     const top = objectOne.y + objectOne.height >= objectTwo.y;
@@ -171,6 +190,11 @@ function gameloop() {
             trees[i].y -= 20;
         }
         trees[i].render();
+    }
+    // Stretch Goal - if a tree hit is detected, lose one point on healthscare
+    if (timeRemaining > 0 && detectTreeHit(skier, trees)) {
+        healthScore -= 1;
+        console.log(healthscore);
     }
     if (timeRemaining <= 5) {
         train.render();
