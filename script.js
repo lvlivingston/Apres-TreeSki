@@ -62,14 +62,23 @@ const train = new Player(canvas.width - 320, canvas.height - 100, 300, 100, "pur
 hut.enoughTime = true;
 train.enoughTime = false;
 
-function drawBox(x, y, width, height, color) {
-    ctx.fillStyle = color;
-    ctx.fillRect(x, y, width, height);
+// function drawBox(x, y, width, height, color) {
+//     ctx.fillStyle = color;
+//     ctx.fillRect(x, y, width, height);
+// }
+
+function startGame() {
+    console.log("click")
+    gameStarted = true;
+    skier.x = 230;
+    skier.y = 100;
+    startCountdown();
+    startButton.style.display = "none";
 }
 
 const currentlyPressedKeys = {}
 function movementHandler() {
-    //need to figure out why skier only moving faster above 200px on y-axisjklkjlkjlkjlkkjlkjlkj
+    //need to figure out why skier doesn't stop moving at end of the game
     const speed = 20;
     if (timeRemaining <= 5) {
         skier.y += speed;
@@ -155,35 +164,44 @@ function startCountdown() {
             counterElement.style.color = 'red';
             counterElement.style.paddingTop = '20px';
             tryAgainButton.style.display = "inline-block";
-        // add that the "auf geht's" button disappears and the new "Play again" button appears and restarts the timer at 1:00    
         } else {
-            setTimeout(updateTimer, 500);
+            setTimeout(updateTimer, 250);
         }
     }
     updateTimer();
 }
 
+//need to add collision function for trees
+
+//figure out how to make the reset button work correctly
+
 function resetGame() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     gameStarted = false;
     timeRemaining = 60;
-    hut.render();
-    skier.render();
+    timerElement.hidden = false;
+    counterElement.textContent = "1:00";
+    counterElement.style.color = 'black';
+    skier.x = 230;
+    skier.y = 100;
+    hut.y = 0;
+    hut.enoughTime = true;
     for (let i = 0; i < trees.length; i++) {
-            trees[i].render();
+        trees[i].x = Math.random() * canvas.width - 75;
+        trees[i].y = Math.random() * canvas.height + 200;
     }
+    train.enoughTime = false;
+    tryAgainButton.style.display = "none";
+    startButton.style.display = "inline-block";
+    startButton.disabled = false;
 }
 
 /* ----- EVENT LISTENERS ---- */
 
-startButton.addEventListener("click", function() {
-    gameStarted = true;
-    skier.x = 230;
-    skier.y = 100;
-    startCountdown();
-    startButton.style.display = "none";
-});
+startButton.addEventListener("click", startGame);
 
 tryAgainButton.addEventListener("click", function() {
+    console.log("click")
     resetGame();
     tryAgainButton.style.display = "none";
 });
