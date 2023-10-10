@@ -5,6 +5,7 @@ const tryAgainButton = document.getElementById("tryAgainButton");
 const canvas = document.querySelector("canvas");
 const counterElement = document.getElementById("counter");
 const timerElement = document.getElementById("timer");
+const healthElement = document.getElementById("health");
 
 /* ----- CANVAS SETUP ------- */
 const ctx = canvas.getContext("2d");
@@ -17,8 +18,9 @@ let enoughTime = true;
 let timeRemaining = 60;
 let skiWinner = false;
 let countdownTimeout;
-let healthScore = 3;
-console.log(healthScore);
+//Stretch Goal - Add in healthscore option with tree collision that will automatically end the game if healthscore equals zero
+let healthScore = 3; 
+let isHit = false;
 
 class Player {
     constructor(x, y, width, height, color) {
@@ -136,14 +138,24 @@ function movementHandler() {
 
 //STRETCH GOAL - Add collision function for trees to slow skier down
 function detectTreeHit(objectOne, objectTwo) {
+    console.log(detectTrainHit);
     const top = (objectOne.y + (objectOne.height * .75)) >= objectTwo.y;
     const bottom = (objectOne.y + (objectOne.height * .25)) <= objectTwo.y + objectTwo.height;
     const left = (objectOne.x + (objectOne.width * .75)) >= objectTwo.x;
     const right = (objectOne.x + (objectOne.width* .25)) <= objectTwo.x + objectTwo.width;
     if (top && bottom && left && right) {
-        return true
+        isHit = true;
+        healthScore--;
+        healthScoreTracker();
+        // if (healthScore <= 0) {
+        //     zeroHealthScore();
+        //     clearInterval(countdownTimeout);
+        // }
+        // return true
+    } else if (!top || !bottom || !left || !right) {
+        isHit = false;
     }
-    return false
+    return false;
 }
 
 function detectTrainHit(objectOne, objectTwo) {
@@ -155,6 +167,18 @@ function detectTrainHit(objectOne, objectTwo) {
         return true
     }
     return false
+}
+
+//Function to track healthscore
+function healthScoreTracker () {
+    if (healthScore === 3) {
+        healthElement.textContent = "❤️ ❤️ ❤️";
+    } else if (healthScore === 2) {
+        healthElement.textContent = "❤️ ❤️";
+    } else if (healthScore === 1) {
+        healthElement.textContent = "❤️";
+    }
+    zeroHealthScore ();
 }
 
 const gameInterval = setInterval(gameloop, 80);
@@ -192,9 +216,11 @@ function gameloop() {
         trees[i].render();
     }
     // Stretch Goal - if a tree hit is detected, lose one point on healthscare
-    if (timeRemaining > 0 && detectTreeHit(skier, trees)) {
-        healthScore -= 1;
-        console.log(healthscore);
+    for (let i = 0; i < trees.length; i++) {
+        if (timeRemaining > 0 && detectTreeHit(skier, trees[i])) {
+        healthScoreTracker();
+        // console.log(healthScoreTracker);
+        }
     }
     if (timeRemaining <= 5) {
         train.render();
@@ -206,9 +232,17 @@ function gameloop() {
     skier.render();
 }
 
+function zeroHealthScore () {
+    counterElement.textContent = "You hit too many trees!";
+    counterElement.style.color = 'red';
+    counterElement.style.paddingTop = '20px';
+    timerElement.style.display = "none";
+    tryAgainButton.style.display = "inline-block";
+}
+
 function timesUp () {
     counterElement.textContent = "Time's up!";
-    counterElement.style.color = 'red';
+    counterElement.style.color = 'orange';
     counterElement.style.paddingTop = '20px';
     timerElement.style.display = "none";
     tryAgainButton.style.display = "inline-block";
@@ -233,6 +267,11 @@ function startCountdown() {
         if (timeRemaining < 1 && skiWinner === false) {
             timesUp ();
             clearInterval(countdownTimeout);
+        }
+        // update message to end game if too many trees hit    
+        if (healthScore < 1) {
+            zeroHealthScore ();
+            clearInterval(countdownTimeout);
         } else if (timeRemaining <= 5 && timeRemaining > 0 && skiWinner === true) {
             winnerMessage ();
             clearInterval(countdownTimeout);
@@ -256,6 +295,9 @@ function resetGame() {
     timeRemaining = 60;
     skiWinner = false;
     countdownTimeout = null;
+    healthScore = 3; 
+    isHit = false;
+    healthElement.textContent = "❤️ ❤️ ❤️";
     timerElement.hidden = false;
     counterElement.textContent = "1:00";
     counterElement.style.color = 'black';
