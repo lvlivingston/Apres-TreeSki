@@ -186,6 +186,22 @@ function gameloop() {
     skier.render();
 }
 
+function timesUp () {
+    counterElement.textContent = "Time's up!";
+    counterElement.style.color = 'red';
+    counterElement.style.paddingTop = '20px';
+    timerElement.style.display = "none";
+    tryAgainButton.style.display = "inline-block";
+}
+
+function winnerMessage () {
+    counterElement.textContent = "You made it!";
+    counterElement.style.color = 'purple';
+    counterElement.style.paddingTop = '20px';
+    timerElement.style.display = "none";
+    tryAgainButton.style.display = "inline-block";
+}
+
 function startCountdown() {
     startButton.disabled = true;
     function updateTimer() {
@@ -195,18 +211,10 @@ function startCountdown() {
         timeRemaining--;
         countdownTimeout = setTimeout(updateTimer, 500);
         if (timeRemaining < 1 && skiWinner === false) {
-            counterElement.textContent = "Time's up!";
-            counterElement.style.color = 'red';
-            counterElement.style.paddingTop = '20px';
-            timerElement.style.display = "none";
-            tryAgainButton.style.display = "inline-block";
+            timesUp ();
             clearInterval(countdownTimeout);
         } else if (timeRemaining <= 5 && timeRemaining > 0 && skiWinner === true) {
-            counterElement.textContent = "You made it!";
-            counterElement.style.color = 'purple';
-            counterElement.style.paddingTop = '20px';
-            timerElement.style.display = "none";
-            tryAgainButton.style.display = "inline-block";
+            winnerMessage ();
             clearInterval(countdownTimeout);
         }
     }
@@ -215,18 +223,10 @@ function startCountdown() {
 
 function skierWins() {
     if (timeRemaining > 0 && detectTrainHit(skier,train)) {
-        timerElement.hidden = true;
-        counterElement.textContent = "You made it!";
-        counterElement.style.color = 'purple';
-        counterElement.style.paddingTop = '20px';
-        tryAgainButton.style.display = "inline-block";
+        winnerMessage ();
         return skiWinner = true;
     }
-    timerElement.hidden = true;
-    counterElement.textContent = "Time's up!";
-    counterElement.style.color = 'red';
-    counterElement.style.paddingTop = '20px';
-    tryAgainButton.style.display = "inline-block";
+    timesUp ();
     return skiWinner = false;
 }
 
