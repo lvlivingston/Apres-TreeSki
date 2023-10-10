@@ -62,10 +62,7 @@ hut.enoughTime = true;
 train.enoughTime = false;
 
 function startGame() {
-    console.log("click")
     gameStarted = true;
-    skier.x = 230;
-    skier.y = 100;
     startCountdown();
     startButton.style.display = "none";
 }
@@ -147,7 +144,6 @@ function detectTrainHit(objectOne, objectTwo) {
     }
     return false
 }
-console.log(detectTrainHit);
 
 const gameInterval = setInterval(gameloop, 80);
 function gameloop() {
@@ -233,7 +229,6 @@ function skierWins() {
     tryAgainButton.style.display = "inline-block";
     return skiWinner = false;
 }
-console.log(skierWins);
 
 function resetGame() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
