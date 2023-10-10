@@ -150,6 +150,7 @@ function gameloop() {
     }
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     let randomTreePath = true;
+    let treeSpeed = 10;
     if (hut.enoughTime) {
         if (currentlyPressedKeys["k"]) {
             hut.y -= 10;
@@ -166,9 +167,11 @@ function gameloop() {
         if (trees[i].y < 0 - trees[i].height && timeRemaining > 5) {
             trees[i].y = canvas.height;
         }
+        if (skier.y >= (canvas.height/2) && timeRemaining > 5) {
+            trees[i].y -= 20;
+        }
         trees[i].render();
     }
-    //Stretch goal - FIX THE SPEED OF THE TREES WHILE THE SKIER.Y IS = CANVAS.HEIGHT/2
     if (timeRemaining <= 5) {
         train.render();
     }
