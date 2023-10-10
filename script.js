@@ -70,15 +70,14 @@ function startGame() {
 const currentlyPressedKeys = {}
 function movementHandler() {
     const speed = 20;
+    let isDiagonal = false;
     if (currentlyPressedKeys["i"]) {
-        let isDiagnal = false;
         if (currentlyPressedKeys["j"] || currentlyPressedKeys["l"]) {
             isDiagnal = true;
         }
         skier.y -= isDiagnal ? speed : speed;
     } 
     if (currentlyPressedKeys["k"]) {
-        let isDiagnal = false;
         if (currentlyPressedKeys["j"] || currentlyPressedKeys["l"]) {
             isDiagnal = true;
         }
@@ -87,14 +86,12 @@ function movementHandler() {
         }
     } 
     if (currentlyPressedKeys["j"]) {
-        let isDiagnal = false;
         if (currentlyPressedKeys["i"] || currentlyPressedKeys["l"]) {
             isDiagnal = true;
         }
         skier.x -= isDiagnal ? speed : speed;
     } 
     if (currentlyPressedKeys["l"]) {
-        let isDiagnal = false;
         if (currentlyPressedKeys["i"] || currentlyPressedKeys["k"]) {
             isDiagnal = true;
         }
@@ -102,28 +99,24 @@ function movementHandler() {
     } 
     if (timeRemaining <= 5) {
         if (currentlyPressedKeys["i"]) {
-            let isDiagnal = false;
             if (currentlyPressedKeys["j"] || currentlyPressedKeys["l"]) {
                 isDiagnal = true;
             }
             skier.y -= isDiagnal ? speed : speed;
         } 
         if (currentlyPressedKeys["k"]) {
-            let isDiagnal = false;
             if (currentlyPressedKeys["j"] || currentlyPressedKeys["l"]) {
                 isDiagnal = true;
             }
             skier.y += isDiagnal ? speed : speed;
         } 
         if (currentlyPressedKeys["j"]) {
-            let isDiagnal = false;
             if (currentlyPressedKeys["i"] || currentlyPressedKeys["l"]) {
                 isDiagnal = true;
             }
             skier.x -= isDiagnal ? speed : speed;
         } 
         if (currentlyPressedKeys["l"]) {
-            let isDiagnal = false;
             if (currentlyPressedKeys["i"] || currentlyPressedKeys["k"]) {
                 isDiagnal = true;
             }
