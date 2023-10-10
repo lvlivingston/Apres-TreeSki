@@ -72,7 +72,6 @@ function startGame() {
 
 const currentlyPressedKeys = {}
 function movementHandler() {
-    //need to figure out why skier doesn't stop moving at end of the game
     const speed = 20;
     if (currentlyPressedKeys["i"]) {
         let isDiagnal = false;
@@ -136,7 +135,7 @@ function movementHandler() {
     }
 }
 
-//need to add collision function for trees
+//STRETCH GOAL - Add collision function for trees to slow skier down
 
 function detectTrainHit(objectOne, objectTwo) {
     const top = objectOne.y + objectOne.height >= objectTwo.y;
@@ -180,7 +179,7 @@ function gameloop() {
         }
         trees[i].render();
     }
-    //FIX THE SPEED OF THE TREES WHILE THE SKIER.Y IS = CANVAS.HEIGHT/2
+    //Stretch goal - FIX THE SPEED OF THE TREES WHILE THE SKIER.Y IS = CANVAS.HEIGHT/2
     if (timeRemaining <= 5) {
         train.render();
     }
@@ -198,14 +197,13 @@ function startCountdown() {
         const seconds = timeRemaining % 60;
         counterElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
         timeRemaining--;
-        countdownTimeout = setTimeout(updateTimer, 350);
+        countdownTimeout = setTimeout(updateTimer, 500);
         if (timeRemaining < 1 && skiWinner === false) {
             counterElement.textContent = "Time's up!";
             counterElement.style.color = 'red';
             counterElement.style.paddingTop = '20px';
             timerElement.style.display = "none";
             tryAgainButton.style.display = "inline-block";
-            // updateTimer();
             clearInterval(countdownTimeout);
         } else if (timeRemaining <= 5 && timeRemaining > 0 && skiWinner === true) {
             counterElement.textContent = "You made it!";
@@ -241,7 +239,8 @@ function resetGame() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     gameStarted = false;
     timeRemaining = 60;
-    winner = false;
+    skiWinner = false;
+    countdownTimeout = null;
     timerElement.hidden = false;
     counterElement.textContent = "1:00";
     counterElement.style.color = 'black';
