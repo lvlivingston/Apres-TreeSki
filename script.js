@@ -15,6 +15,8 @@ canvas.setAttribute("width", getComputedStyle(canvas).width);
 let gameStarted = false;
 let enoughTime = true;
 let timeRemaining = 60;
+let skiWinner = false;
+let countdownTimeout;
 
 class Player {
     constructor(x, y, width, height, color) {
@@ -134,6 +136,20 @@ function movementHandler() {
     }
 }
 
+//need to add collision function for trees
+
+function detectTrainHit(objectOne, objectTwo) {
+    const top = objectOne.y + objectOne.height >= objectTwo.y;
+    const bottom = objectOne.y <= objectTwo.y + objectTwo.height;
+    const left = objectOne.x + objectOne.width >= objectTwo.x;
+    const right = objectOne.x <= objectTwo.x + objectTwo.width;
+    if (top && bottom && left && right) {
+        return true
+    }
+    return false
+}
+console.log(detectTrainHit);
+
 const gameInterval = setInterval(gameloop, 80);
 function gameloop() {
     if (!gameStarted) {
@@ -164,8 +180,12 @@ function gameloop() {
         }
         trees[i].render();
     }
+    //FIX THE SPEED OF THE TREES WHILE THE SKIER.Y IS = CANVAS.HEIGHT/2
     if (timeRemaining <= 5) {
         train.render();
+    }
+    if (timeRemaining > 0 && detectTrainHit(skier, train)) {
+        skiWinner = true;
     }
     movementHandler();
     skier.render();
@@ -178,27 +198,50 @@ function startCountdown() {
         const seconds = timeRemaining % 60;
         counterElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
         timeRemaining--;
-        if (timeRemaining < 0) {
-            timerElement.hidden = true;
+        countdownTimeout = setTimeout(updateTimer, 350);
+        if (timeRemaining < 1 && skiWinner === false) {
             counterElement.textContent = "Time's up!";
             counterElement.style.color = 'red';
             counterElement.style.paddingTop = '20px';
+            timerElement.style.display = "none";
             tryAgainButton.style.display = "inline-block";
-        } else {
-            setTimeout(updateTimer, 250);
+            // updateTimer();
+            clearInterval(countdownTimeout);
+        } else if (timeRemaining <= 5 && timeRemaining > 0 && skiWinner === true) {
+            counterElement.textContent = "You made it!";
+            counterElement.style.color = 'purple';
+            counterElement.style.paddingTop = '20px';
+            timerElement.style.display = "none";
+            tryAgainButton.style.display = "inline-block";
+            clearInterval(countdownTimeout);
         }
     }
     updateTimer();
 }
 
-//need to add collision function for trees
-
-//need to add collision function for train
+function skierWins() {
+    if (timeRemaining > 0 && detectTrainHit(skier,train)) {
+        timerElement.hidden = true;
+        counterElement.textContent = "You made it!";
+        counterElement.style.color = 'purple';
+        counterElement.style.paddingTop = '20px';
+        tryAgainButton.style.display = "inline-block";
+        return skiWinner = true;
+    }
+    timerElement.hidden = true;
+    counterElement.textContent = "Time's up!";
+    counterElement.style.color = 'red';
+    counterElement.style.paddingTop = '20px';
+    tryAgainButton.style.display = "inline-block";
+    return skiWinner = false;
+}
+console.log(skierWins);
 
 function resetGame() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     gameStarted = false;
     timeRemaining = 60;
+    winner = false;
     timerElement.hidden = false;
     counterElement.textContent = "1:00";
     counterElement.style.color = 'black';
@@ -220,7 +263,6 @@ function resetGame() {
 startButton.addEventListener("click", startGame);
 
 tryAgainButton.addEventListener("click", function() {
-    console.log("click")
     resetGame();
     tryAgainButton.style.display = "none";
 });
