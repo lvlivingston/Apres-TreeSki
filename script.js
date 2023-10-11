@@ -14,7 +14,6 @@ canvas.setAttribute("width", getComputedStyle(canvas).width);
 
 /* ----- CLASSES ------------ */
 let gameStarted = false;
-let enoughTime = true;
 let timeRemaining = 60;
 let skiWinner = false;
 let countdownTimeout;
@@ -36,7 +35,7 @@ class Player {
     }
 }
 
-const skier = new Player(230, 100, 30, 60, "blue");
+const skier = new Player(230, 100, 30, 60, "blue", false);
 const trees = [
     new Player(Math.random() * canvas.width - 25, Math.random() * canvas.height + 200, 25, 75, "#217224", false),
     new Player(Math.random() * canvas.width - 50, Math.random() * canvas.height + 200, 50, 100, "#217224", false),
@@ -57,13 +56,10 @@ const trees = [
     new Player(Math.random() * canvas.width - 50, Math.random() * canvas.height + 200, 50, 100, "#217224", false),
     new Player(Math.random() * canvas.width - 75, Math.random() * canvas.height + 200, 75, 125, "#217224", false),
 ]
-const hut = new Player(0,0, 100, 100, "brown");
-const train = new Player(canvas.width - 320, canvas.height - 100, 300, 100, "purple")
+const hut = new Player(0,0, 100, 100, "brown", false);
+const train = new Player(canvas.width - 320, canvas.height - 100, 300, 100, "purple", false)
 
 /* ----- FUNCTIONS ---------- */
-// hut.enoughTime = true;
-// train.enoughTime = false;
-
 function startGame() {
     gameStarted = true;
     startCountdown();
@@ -160,9 +156,10 @@ function detectTrainHit(objectOne, objectTwo) {
     const left = objectOne.x + objectOne.width >= objectTwo.x;
     const right = objectOne.x <= objectTwo.x + objectTwo.width;
     if (top && bottom && left && right) {
-        return true
+        train.hasBeenHit = true;
+        return true;
     }
-    return false
+    return false;
 }
 
 //Function to track healthscore
@@ -189,18 +186,10 @@ function gameloop() {                                   // when the function of 
         return;                                         // do not allow the user to move the skier with the j, k, i, or l keys until the start button is clicked
     }
     ctx.clearRect(0, 0, canvas.width, canvas.height);   // clears the game board every time it loops for smooth "movement" of elements like sking downhill
-    // let randomTreePath = true;
-    // let treeSpeed = 10;
-    // if (/*hut.enoughTime*/timeRemaining = 60) {
-        if (currentlyPressedKeys["k"]) {
-            hut.y -= 10;
-        }
-        // if (hut.y + hut.height < 0) {
-        //     /*hut.enoughTime = false*/ !hut.render(); 
-        // }
-        hut.render();
-        // startCountdown();
-    // }
+    if (currentlyPressedKeys["k"]) {
+        hut.y -= 10;
+    }
+    hut.render();
     for (let i = 0; i < trees.length; i++) {
         if (currentlyPressedKeys["k"]) {                                        // makes the trees scroll at the game start when skier starts moving
             trees[i].y -= 10;
@@ -225,6 +214,7 @@ function gameloop() {                                   // when the function of 
     }
     if (timeRemaining > 0 && detectTrainHit(skier, train)) {
         skiWinner = true;
+        console.log(train.hasBeenHit);
     }
     movementHandler();
     skier.render();
