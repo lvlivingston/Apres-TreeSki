@@ -157,16 +157,15 @@ function detectTrainHit(objectOne, objectTwo) {                                 
     return false;
 }
 
-//Function to track healthscore
-function healthScoreTracker () {
-    if (healthScore === 3) {
-        healthElement.textContent = "❤️ ❤️ ❤️";
-    } else if (healthScore === 2) {
-        healthElement.textContent = "❤️ ❤️";
-    } else if (healthScore === 1) {
-        healthElement.textContent = "❤️";
-    } else {
-        zeroHealthScore ();
+function healthScoreTracker () {                                                // function that tracks the health score of the game
+    if (healthScore === 3) {                                                    // if the healthscore is three
+        healthElement.textContent = "❤️ ❤️ ❤️";                                    // show 3 hearts in the infobox
+    } else if (healthScore === 2) {                                             // if the healthscore is two
+        healthElement.textContent = "❤️ ❤️";                                      // show 2 hearts in the infobox
+    } else if (healthScore === 1) {                                             // if the healthscore is one
+        healthElement.textContent = "❤️";                                        // show 1 heart1 in the infobox
+    } else {                                                                    // otherwise
+        zeroHealthScore ();                                                     // invoke the zeroHealthScore function
     }
 }
 
@@ -216,28 +215,27 @@ function gameloop() {                                                           
     skier.render();                                                             // invokes the skier to render on the screen
 }
 
-function zeroHealthScore () {
-    counterElement.textContent = "You hit too many trees!";
-    counterElement.style.color = 'red';
-    counterElement.style.paddingTop = '20px';
-    timerElement.style.display = "none";
-    tryAgainButton.style.display = "inline-block";
+function winnerView () {                                                        // if the winnerView function is invoked
+    counterElement.style.paddingTop = '20px';                                   // add 20px of padding above the counterElement
+    timerElement.style.display = "none";                                        // do not display the timerElement
+    tryAgainButton.style.display = "inline-block";                              // display the "Try Again" button
+}
+function zeroHealthScore () {                                                   // if the zeroHealthScore function is invoked
+    counterElement.textContent = "You hit too many trees!";                     // have the counterElement show the text "You hit too many trees!"
+    counterElement.style.color = 'red';                                         // make the counterElement text red
+    winnerView ();                                                              // invoke the winnerView function
 }
 
-function timesUp () {
-    counterElement.textContent = "You missed the train!";
-    counterElement.style.color = 'orange';
-    counterElement.style.paddingTop = '20px';
-    timerElement.style.display = "none";
-    tryAgainButton.style.display = "inline-block";
+function timesUp () {                                                           // if the timesUp function is invoked
+    counterElement.textContent = "You missed the train!";                       // have the counterElement show the text "You missed the train!"
+    counterElement.style.color = 'orange';                                      // make the counterElement text orange
+    winnerView ();                                                              // invoke the winnerView function
 }
 
-function winnerMessage () {
-    counterElement.textContent = "You made it!";
-    counterElement.style.color = 'purple';
-    counterElement.style.paddingTop = '20px';
-    timerElement.style.display = "none";
-    tryAgainButton.style.display = "inline-block";
+function winnerMessage () {                                                     // if the timesUp function is invoked
+    counterElement.textContent = "You made it!";                                // have the counterElement show the text "You made it!"
+    counterElement.style.color = 'purple';                                      // make the counterElement text purple
+    winnerView ();                                                              // invoke the winnerView function
 }
 
 function startCountdown() {
