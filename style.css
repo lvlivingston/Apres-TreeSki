@@ -44,6 +44,7 @@ h2 {
     margin: 3px;
     font-family: 'Berkshire Swash', cursive;
     font-size: 4vmin;
+    font-style: bold;
     text-align: center;
     padding-bottom: 20px;
 }
@@ -57,34 +58,33 @@ img {
 
 #intro {
     margin: 0;
-    font-family: 'Noto Serif Display', serif;
+    font-family: 'MedievalSharp', cursive;
     font-size: 1vmin;
+    font-style: normal;
     font-size: calc(8px + 0.390625vw);
     padding-bottom: 8px;
     text-align: center;
 }
 
 .directions {
-    font-family: 'Noto Serif Display', serif;
-    font-size: 1vmin;
+    font-family: 'Poiret One', sans-serif;
+    font-size: 3vmin;
     font-style: italic;
     font-size: calc(8px + 0.390625vw);
     text-align: center;
+    margin-top: -4;
 }
 
 .timer {
-    font-family: 'Noto Serif Display', serif;
-    font-style: bold;
-    font-size: 1.5vmin;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: bold;
+    font-size: 3vmin;
     font-size: calc(12px + 0.390625vw);
     text-align: center;
     /* padding-top: 20px;
     padding-bottom: 20px; */
 }
 
-#health {
-    
-}
 #timer {
     padding-top: 20px;
 }

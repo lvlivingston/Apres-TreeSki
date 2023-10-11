@@ -20,7 +20,6 @@ let skiWinner = false;
 let countdownTimeout;
 //Stretch Goal - Add in healthscore option with tree collision that will automatically end the game if healthscore equals zero
 let healthScore = 3; 
-let isHit = false;
 
 class Player {
     constructor(x, y, width, height, color) {
@@ -29,7 +28,7 @@ class Player {
         this.width = width;
         this.height = height;
         this.color = color;
-        this.enoughTime = true;
+        this.hasBeenHit = false;
     }
     render() {
         ctx.fillStyle = this.color;
@@ -39,31 +38,31 @@ class Player {
 
 const skier = new Player(230, 100, 30, 60, "blue");
 const trees = [
-    new Player(Math.random() * canvas.width - 25, Math.random() * canvas.height + 200, 25, 75, "#217224"),
-    new Player(Math.random() * canvas.width - 50, Math.random() * canvas.height + 200, 50, 100, "#217224"),
-    new Player(Math.random() * canvas.width - 75, Math.random() * canvas.height + 200, 75, 125, "#217224"),
-    new Player(Math.random() * canvas.width - 25, Math.random() * canvas.height + 200, 25, 75, "#217224"),
-    new Player(Math.random() * canvas.width - 50, Math.random() * canvas.height + 200, 50, 100, "#217224"),
-    new Player(Math.random() * canvas.width - 75, Math.random() * canvas.height + 200, 75, 125, "#217224"),
-    new Player(Math.random() * canvas.width - 25, Math.random() * canvas.height + 200, 25, 75, "#217224"),
-    new Player(Math.random() * canvas.width - 50, Math.random() * canvas.height + 200, 50, 100, "#217224"),
-    new Player(Math.random() * canvas.width - 75, Math.random() * canvas.height + 200, 75, 125, "#217224"),
-    new Player(Math.random() * canvas.width - 25, Math.random() * canvas.height + 200, 25, 75, "#217224"),
-    new Player(Math.random() * canvas.width - 50, Math.random() * canvas.height + 200, 50, 100, "#217224"),
-    new Player(Math.random() * canvas.width - 75, Math.random() * canvas.height + 200, 75, 125, "#217224"),
-    new Player(Math.random() * canvas.width - 25, Math.random() * canvas.height + 200, 25, 75, "#217224"),
-    new Player(Math.random() * canvas.width - 50, Math.random() * canvas.height + 200, 50, 100, "#217224"),
-    new Player(Math.random() * canvas.width - 75, Math.random() * canvas.height + 200, 75, 125, "#217224"),
-    new Player(Math.random() * canvas.width - 25, Math.random() * canvas.height + 200, 25, 75, "#217224"),
-    new Player(Math.random() * canvas.width - 50, Math.random() * canvas.height + 200, 50, 100, "#217224"),
-    new Player(Math.random() * canvas.width - 75, Math.random() * canvas.height + 200, 75, 125, "#217224"),
+    new Player(Math.random() * canvas.width - 25, Math.random() * canvas.height + 200, 25, 75, "#217224", false),
+    new Player(Math.random() * canvas.width - 50, Math.random() * canvas.height + 200, 50, 100, "#217224", false),
+    new Player(Math.random() * canvas.width - 75, Math.random() * canvas.height + 200, 75, 125, "#217224", false),
+    new Player(Math.random() * canvas.width - 25, Math.random() * canvas.height + 200, 25, 75, "#217224", false),
+    new Player(Math.random() * canvas.width - 50, Math.random() * canvas.height + 200, 50, 100, "#217224", false),
+    new Player(Math.random() * canvas.width - 75, Math.random() * canvas.height + 200, 75, 125, "#217224", false),
+    new Player(Math.random() * canvas.width - 25, Math.random() * canvas.height + 200, 25, 75, "#217224", false),
+    new Player(Math.random() * canvas.width - 50, Math.random() * canvas.height + 200, 50, 100, "#217224", false),
+    new Player(Math.random() * canvas.width - 75, Math.random() * canvas.height + 200, 75, 125, "#217224", false),
+    new Player(Math.random() * canvas.width - 25, Math.random() * canvas.height + 200, 25, 75, "#217224", false),
+    new Player(Math.random() * canvas.width - 50, Math.random() * canvas.height + 200, 50, 100, "#217224", false),
+    new Player(Math.random() * canvas.width - 75, Math.random() * canvas.height + 200, 75, 125, "#217224", false),
+    new Player(Math.random() * canvas.width - 25, Math.random() * canvas.height + 200, 25, 75, "#217224", false),
+    new Player(Math.random() * canvas.width - 50, Math.random() * canvas.height + 200, 50, 100, "#217224", false),
+    new Player(Math.random() * canvas.width - 75, Math.random() * canvas.height + 200, 75, 125, "#217224", false),
+    new Player(Math.random() * canvas.width - 25, Math.random() * canvas.height + 200, 25, 75, "#217224", false),
+    new Player(Math.random() * canvas.width - 50, Math.random() * canvas.height + 200, 50, 100, "#217224", false),
+    new Player(Math.random() * canvas.width - 75, Math.random() * canvas.height + 200, 75, 125, "#217224", false),
 ]
 const hut = new Player(0,0, 100, 100, "brown");
 const train = new Player(canvas.width - 320, canvas.height - 100, 300, 100, "purple")
 
 /* ----- FUNCTIONS ---------- */
-hut.enoughTime = true;
-train.enoughTime = false;
+// hut.enoughTime = true;
+// train.enoughTime = false;
 
 function startGame() {
     gameStarted = true;
@@ -138,25 +137,22 @@ function movementHandler() {
 
 //STRETCH GOAL - Add collision function for trees to slow skier down
 function detectTreeHit(objectOne, objectTwo) {
-    console.log(detectTrainHit);
     const top = (objectOne.y + (objectOne.height * .75)) >= objectTwo.y;
     const bottom = (objectOne.y + (objectOne.height * .25)) <= objectTwo.y + objectTwo.height;
     const left = (objectOne.x + (objectOne.width * .75)) >= objectTwo.x;
     const right = (objectOne.x + (objectOne.width* .25)) <= objectTwo.x + objectTwo.width;
-    if (top && bottom && left && right) {
-        isHit = true;
-        healthScore--;
+    for (let i = 0; i < trees.length; i++) {
+    if (trees[i].hasBeenHit) {
+        trees[i].hasBeenHit = true;
         healthScoreTracker();
-        // if (healthScore <= 0) {
-        //     zeroHealthScore();
-        //     clearInterval(countdownTimeout);
-        // }
-        // return true
     } else if (!top || !bottom || !left || !right) {
-        isHit = false;
+        trees[i].hasBeenHit = false;
+    }
     }
     return false;
 }
+console.log(detectTreeHit);
+console.log(healthScoreTracker);
 
 function detectTrainHit(objectOne, objectTwo) {
     const top = objectOne.y + objectOne.height >= objectTwo.y;
@@ -177,43 +173,45 @@ function healthScoreTracker () {
         healthElement.textContent = "❤️ ❤️";
     } else if (healthScore === 1) {
         healthElement.textContent = "❤️";
+    } else {
+        zeroHealthScore ();
     }
-    zeroHealthScore ();
 }
 
-const gameInterval = setInterval(gameloop, 80);
-function gameloop() {
-    if (!gameStarted) {
-        hut.render();
-        skier.render();
-        for (let i = 0; i < trees.length; i++) {
+const gameInterval = setInterval(gameloop, 80);         // set the game interval to loop every 80 milliseconds
+function gameloop() {                                   // when the function of the gameloop starts  
+    if (!gameStarted) {                                 // if the game has not started
+        hut.render();                                   // render the hut &
+        skier.render();                                 // render the player (aka skier) &
+        for (let i = 0; i < trees.length; i++) {        // randomly generate the trees
             trees[i].render();
         }
-        return;
+        return;                                         // do not allow the user to move the skier with the j, k, i, or l keys until the start button is clicked
     }
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    let randomTreePath = true;
-    let treeSpeed = 10;
-    if (hut.enoughTime) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);   // clears the game board every time it loops for smooth "movement" of elements like sking downhill
+    // let randomTreePath = true;
+    // let treeSpeed = 10;
+    // if (/*hut.enoughTime*/timeRemaining = 60) {
         if (currentlyPressedKeys["k"]) {
             hut.y -= 10;
         }
-        if (hut.y + hut.height < 0) {
-            hut.enoughTime = false; 
-        }
+        // if (hut.y + hut.height < 0) {
+        //     /*hut.enoughTime = false*/ !hut.render(); 
+        // }
         hut.render();
-    }
+        // startCountdown();
+    // }
     for (let i = 0; i < trees.length; i++) {
-        if (currentlyPressedKeys["k"]) {
+        if (currentlyPressedKeys["k"]) {                                        // makes the trees scroll at the game start when skier starts moving
             trees[i].y -= 10;
         }
-        if (trees[i].y < 0 - trees[i].height && timeRemaining > 5) {
+        if (trees[i].y < 0 - trees[i].height && timeRemaining > 5) {            // renders new trees as the gameboard scrolls
             trees[i].y = canvas.height;
         }
-        if (skier.y >= (canvas.height/2) && timeRemaining > 5) {
-            trees[i].y -= 20;
+        if (skier.y >= (canvas.height/2) && timeRemaining > 5) {                // allows skier move automatically at the canvas.height/2
+            trees[i].y -= 20;                                                   // makes skier move "faster" when k key is pressed
         }
-        trees[i].render();
+        trees[i].render();                                                      // renders new
     }
     // Stretch Goal - if a tree hit is detected, lose one point on healthscare
     for (let i = 0; i < trees.length; i++) {
@@ -241,7 +239,7 @@ function zeroHealthScore () {
 }
 
 function timesUp () {
-    counterElement.textContent = "Time's up!";
+    counterElement.textContent = "You missed the train!";
     counterElement.style.color = 'orange';
     counterElement.style.paddingTop = '20px';
     timerElement.style.display = "none";
@@ -298,18 +296,18 @@ function resetGame() {
     healthScore = 3; 
     isHit = false;
     healthElement.textContent = "❤️ ❤️ ❤️";
-    timerElement.hidden = false;
+    timerElement.style.display = "inline-block";
     counterElement.textContent = "1:00";
     counterElement.style.color = 'black';
     skier.x = 230;
     skier.y = 100;
     hut.y = 0;
-    hut.enoughTime = true;
+    // hut.enoughTime = true;
     for (let i = 0; i < trees.length; i++) {
         trees[i].x = Math.random() * canvas.width - 75;
         trees[i].y = Math.random() * canvas.height + 200;
     }
-    train.enoughTime = false;
+    // train.enoughTime = false;
     tryAgainButton.style.display = "none";
     startButton.style.display = "inline-block";
     startButton.disabled = false;
