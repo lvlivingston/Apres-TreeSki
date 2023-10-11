@@ -132,33 +132,28 @@ function movementHandler() {
 }
 
 //STRETCH GOAL - Add collision function for trees to slow skier down
-function detectTreeHit(objectOne, objectTwo) {
+function detectTreeHit(objectOne, objectTwo) {                                  // collision detection formula for if skier hits any tree
     const top = (objectOne.y + (objectOne.height * .75)) >= objectTwo.y;
     const bottom = (objectOne.y + (objectOne.height * .25)) <= objectTwo.y + objectTwo.height;
     const left = (objectOne.x + (objectOne.width * .75)) >= objectTwo.x;
     const right = (objectOne.x + (objectOne.width* .25)) <= objectTwo.x + objectTwo.width;
-    for (let i = 0; i < trees.length; i++) {
-    if (trees[i].hasBeenHit) {
-        trees[i].hasBeenHit = true;
-        healthScoreTracker();
-    } else if (!top || !bottom || !left || !right) {
-        trees[i].hasBeenHit = false;
-    }
+    if (top && bottom && left && right && !objectTwo.hasBeenHit) {
+        objectTwo.hasBeenHit = true;
+        console.log(objectTwo.hasBeenHit);
+        return true;
     }
     return false;
 }
-console.log(detectTreeHit);
-console.log(healthScoreTracker);
 
-function detectTrainHit(objectOne, objectTwo) {
+function detectTrainHit(objectOne, objectTwo) {                                 // collision detection formula for if skier hits the train
     const top = objectOne.y + objectOne.height >= objectTwo.y;
     const bottom = objectOne.y <= objectTwo.y + objectTwo.height;
     const left = objectOne.x + objectOne.width >= objectTwo.x;
     const right = objectOne.x <= objectTwo.x + objectTwo.width;
-    if (top && bottom && left && right) {
-        train.hasBeenHit = true;
-        return true;
-    }
+        if (top && bottom && left && right) {
+            train.hasBeenHit = true;
+            return true;
+        }
     return false;
 }
 
@@ -175,49 +170,50 @@ function healthScoreTracker () {
     }
 }
 
-const gameInterval = setInterval(gameloop, 80);         // set the game interval to loop every 80 milliseconds
-function gameloop() {                                   // when the function of the gameloop starts  
-    if (!gameStarted) {                                 // if the game has not started
-        hut.render();                                   // render the hut &
-        skier.render();                                 // render the player (aka skier) &
-        for (let i = 0; i < trees.length; i++) {        // randomly generate the trees
-            trees[i].render();
+const gameInterval = setInterval(gameloop, 80);                                 // set the game interval to loop every 80 milliseconds
+function gameloop() {                                                           // when the function of the gameloop starts  
+    if (!gameStarted) {                                                         // if the game has not started
+        hut.render();                                                           // render the hut &
+        skier.render();                                                         // render the player (aka skier) &
+        for (let i = 0; i < trees.length; i++) {                                // for the array of trees
+            trees[i].render();                                                  // render them randomly on the screen 
         }
-        return;                                         // do not allow the user to move the skier with the j, k, i, or l keys until the start button is clicked
+        return;                                                                 // do not allow the user to move the skier with the j, k, i, or l keys until the start button is clicked
     }
-    ctx.clearRect(0, 0, canvas.width, canvas.height);   // clears the game board every time it loops for smooth "movement" of elements like sking downhill
-    if (currentlyPressedKeys["k"]) {
-        hut.y -= 10;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);                           // clears the game board every time it loops for smooth "movement" of elements like sking downhill
+    if (currentlyPressedKeys["k"]) {                                            // if the k key is pressed down
+        hut.y -= 10;                                                            // have the hut scroll up at - 10px &
     }
-    hut.render();
-    for (let i = 0; i < trees.length; i++) {
-        if (currentlyPressedKeys["k"]) {                                        // makes the trees scroll at the game start when skier starts moving
-            trees[i].y -= 10;
+    hut.render();                                                               // render image of hut until it's gone from view
+    for (let i = 0; i < trees.length; i++) {                                    // for the array of trees
+        if (currentlyPressedKeys["k"]) {                                        // if k key is pressed the trees scroll at the game start when skier starts moving
+            trees[i].y -= 10;                                                   // have the trees scroll up at - 10px
         }
-        if (trees[i].y < 0 - trees[i].height && timeRemaining > 5) {            // renders new trees as the gameboard scrolls
-            trees[i].y = canvas.height;
+        if (trees[i].y < 0 - trees[i].height && timeRemaining > 5) {            // if the y (top of the tree) minus the y.height (bottom of the tree) && the timer is above 0:05
+            trees[i].y = canvas.height;                                         // render new trees as the gameboard scrolls
         }
-        if (skier.y >= (canvas.height/2) && timeRemaining > 5) {                // allows skier move automatically at the canvas.height/2
-            trees[i].y -= 20;                                                   // makes skier move "faster" when k key is pressed
+        if (skier.y >= (canvas.height/2) && timeRemaining > 5) {                // if the skier's y (top of the skier) is greater than the halfway point of the canvas & the timer is above 0:05
+            trees[i].y -= 20;                                                   // trees "move faster" with skier and skier moves automatically
         }
-        trees[i].render();                                                      // renders new
+        trees[i].render();                                                      // renders new trees when the gameloops
     }
     // Stretch Goal - if a tree hit is detected, lose one point on healthscare
     for (let i = 0; i < trees.length; i++) {
         if (timeRemaining > 0 && detectTreeHit(skier, trees[i])) {
-        healthScoreTracker();
-        // console.log(healthScoreTracker);
+            healthScoreTracker();
         }
     }
-    if (timeRemaining <= 5) {
-        train.render();
+    // Stretch Goal -- have the train scroll up onto the screen 
+    if (timeRemaining <= 5) {                                                   // if there's 5 seconds left on the clock
+        // train.y -= 10;       // has train scroll all the way up
+        train.render();                                                         // have the train appear
     }
-    if (timeRemaining > 0 && detectTrainHit(skier, train)) {
-        skiWinner = true;
-        console.log(train.hasBeenHit);
+    if (timeRemaining > 0 && detectTrainHit(skier, train)) {                    // if the timer is above 0:00 and the skier has hit the train station   
+        skiWinner = true;                                                       // skiWinner = true
+        // console.log(train.hasBeenHit);
     }
-    movementHandler();
-    skier.render();
+    movementHandler();                                                          // invokes the movementHandler function
+    skier.render();                                                             // invokes the skier to render on the screen
 }
 
 function zeroHealthScore () {
