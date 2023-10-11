@@ -42,24 +42,24 @@ This game is built using HTML, CSS, JavaScript & Canvas.
 The minimum viable product (MVP) goal is for the user interface to show basic CSS in order for a functional game to be played.
 ---
 ###### Starting Screen
-![Start Screen](gameStart.png)
+![Start Screen](./gameStart.png)
 ---
 ###### During Gameplay
-![During Game](middleOfGame.png)
+![During Game](./middleOfGame.png)
 
 ---
-![Last 10 Seconds](lastTenSeconds.png)
+![Last 10 Seconds](./lastTenSeconds.png)
 ---
 ###### End Screens for Winner vs. Loser
-![Winner](winnerScreen.png)
+![Winner](./winnerScreen.png)
 
 ---
-![Loser](loser.png)
+![Loser](./loser.png)
 
 ---
 The stretch goal is for the user interface and experience to mimic the graphics and style of the original computer game from 1991.
 
-![Screenshot of SkiFree](skiFree.png)
+![Screenshot of SkiFree](./skiFree.png)
 
 
 

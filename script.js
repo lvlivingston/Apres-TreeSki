@@ -69,14 +69,14 @@ const currentlyPressedKeys = {}                                                 
 function movementHandler() {                                                                                            // function to allow skier to move 
     const speed = 20;                                                                                                   // the initial speed of the skier is 20
     if (currentlyPressedKeys["i"]) {                                                                                    // if the i key is pressed
-        let isDiagonal = false;                                                                                         
+        let isDiagonal = false;                                                                                         // declare a new variable called isDiagonal with an initial value as false;
         if (currentlyPressedKeys["j"] || currentlyPressedKeys["l"]) {
             isDiagonal = true;
         }
         skier.y -= isDiagonal ? speed : speed;
     } 
     if (currentlyPressedKeys["k"]) {
-        let isDiagonal = false;
+        let isDiagonal = false;                                                                                         // declare a new variable called isDiagonal with an initial value as false;
         if (currentlyPressedKeys["j"] || currentlyPressedKeys["l"]) {
             isDiagonal = true;
         }
@@ -85,43 +85,43 @@ function movementHandler() {                                                    
         }
     } 
     if (currentlyPressedKeys["j"]) {
-        let isDiagonal = false;
+        let isDiagonal = false;                                                                                         // declare a new variable called isDiagonal with an initial value as false;
         if (currentlyPressedKeys["i"] || currentlyPressedKeys["l"]) {
             isDiagonal = true;
         }
         skier.x -= isDiagonal ? speed : speed;
     } 
     if (currentlyPressedKeys["l"]) {
-        let isDiagonal = false;
+        let isDiagonal = false;                                                                                         // declare a new variable called isDiagonal with an initial value as false;
         if (currentlyPressedKeys["i"] || currentlyPressedKeys["k"]) {
             isDiagonal = true;
         }
         skier.x += isDiagonal ? speed : speed;
     } 
     if (timeRemaining <= 5) {
-        if (currentlyPressedKeys["i"]) {
-            let isDiagonal = false;
+        if (currentlyPressedKeys["i"]) {                                                                                
+            let isDiagonal = false;                                                                                     // declare a new variable called isDiagonal with an initial value as false;
             if (currentlyPressedKeys["j"] || currentlyPressedKeys["l"]) {
                 isDiagonal = true;
             }
             skier.y -= isDiagonal ? speed : speed;
         } 
         if (currentlyPressedKeys["k"]) {
-            let isDiagonal = false;
+            let isDiagonal = false;                                                                                     // declare a new variable called isDiagonal with an initial value as false;
             if (currentlyPressedKeys["j"] || currentlyPressedKeys["l"]) {
                 isDiagonal = true;
             }
             skier.y += isDiagonal ? speed : speed;
         } 
         if (currentlyPressedKeys["j"]) {
-            let isDiagonal = false;
+            let isDiagonal = false;                                                                                     // declare a new variable called isDiagonal with an initial value as false;
             if (currentlyPressedKeys["i"] || currentlyPressedKeys["l"]) {
                 isDiagonal = true;
             }
             skier.x -= isDiagonal ? speed : speed;
         } 
         if (currentlyPressedKeys["l"]) {
-            let isDiagonal = false;
+            let isDiagonal = false;                                                                                     // declare a new variable called isDiagonal with an initial value as false;
             if (currentlyPressedKeys["i"] || currentlyPressedKeys["k"]) {
                 isDiagonal = true;
             }
