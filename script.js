@@ -11,6 +11,8 @@ const healthElement = document.getElementById("health");
 const ctx = canvas.getContext("2d");
 canvas.setAttribute("height", getComputedStyle(canvas).height);
 canvas.setAttribute("width", getComputedStyle(canvas).width);
+console.log (canvas.height);
+console.log (canvas.width);
 
 /* ----- CLASSES ------------ */
 let gameStarted = false;
@@ -34,7 +36,13 @@ class Player {
     }
 }
 
-const skier = new Player(230, 100, 30, 60, "blue", false);
+const skierX = canvas.width * .30;
+const skierY = canvas.height * .15;
+const skierWidth = canvas.width * .04;
+const skierHeight = canvas.height * .08;
+
+const skier = new Player(skierX, skierY, skierWidth, skierHeight, "blue", false);
+console.log(skier);
 const trees = [
     new Player(Math.random() * canvas.width - 25, Math.random() * canvas.height + 200, 25, 75, "#217224", false),
     new Player(Math.random() * canvas.width - 50, Math.random() * canvas.height + 200, 50, 100, "#217224", false),
