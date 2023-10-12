@@ -34,7 +34,6 @@ body {
     justify-content: space-evenly;
     align-items: center;
     max-width: 100%;
-    /* padding: 10%; */
     border-style: solid;
     border-color: black;
     text-align: center;
@@ -46,20 +45,16 @@ h2 {
     font-size: 4.5vmin;
     font-style: bold;
     text-align: center;
-    /* padding-bottom: 10%; */
 }
 
 img {
-    /* height: 10%; */
     max-width: 20%;
     align-self: center;
-    /* padding-bottom: 10%; */
 }
 
 #intro {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    /* font-size: 2.3vmin; */
     font-style: normal;
     font-size: calc(8px + 0.390625vw);
     padding: 8%;
@@ -68,7 +63,6 @@ img {
 
 .directions {
     font-family: 'Roboto', sans-serif;
-    /* font-size: 2.2vmin; */
     font-style: italic;
     font-size: calc(8px + 0.390625vw);
     text-align: center;
@@ -81,14 +75,6 @@ img {
     text-align: center;
     /* font-size: 3vmin; */
     font-size: calc(12px + 0.390625vw);
-}
-
-#timer {
-    /* padding-top: 10%; */
-}
-
-#counter {
-    /* padding-bottom: 10%; */
 }
 
 button {
