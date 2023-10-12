@@ -10,19 +10,29 @@ body {
 #container {
     display: grid;
     justify-content: flex-start;
-    height: 90vmin;
-    width: 100vmin;
+    height: 90%;
+    width: 90%;
+    max-width: 100%;
     background-color: white;
     padding: 2vmin;
     grid-template-rows: 1fr;
     grid-template-columns: 3fr 1fr;
     grid-template-areas: "canvas canvas canvas infoBox"
-                        "canvas canvas canvas infoBox"
-                        "canvas canvas canvas infoBox";
+                          "canvas canvas canvas infoBox"
+                          "canvas canvas canvas infoBox";
 }
 
+/* @media screen and (max-height: 371px) {
+    #infoBox {
+        .flex-grid {
+            display: block;
+        }    
+    }
+
+} */
+
 #canvas {
-    width: 100%;
+    width: 90%;
     height: 100%;
     position: relative;
     padding-right: -10%;
@@ -34,7 +44,7 @@ body {
     justify-content: space-evenly;
     align-items: center;
     max-width: 100%;
-    padding: 10%;
+    /* padding: 10%; */
     border-style: solid;
     border-color: black;
     text-align: center;
@@ -46,14 +56,14 @@ h2 {
     font-size: 4vmin;
     font-style: bold;
     text-align: center;
-    padding-bottom: 10%;
+    /* padding-bottom: 10%; */
 }
 
 img {
     max-width: 40%;
-    height: auto;
+    height: 10%;
     align-self: center;
-    padding-bottom: 10%;
+    /* padding-bottom: 10%; */
 }
 
 #intro {
@@ -62,7 +72,7 @@ img {
     font-size: 1vmin;
     font-style: normal;
     font-size: calc(8px + 0.390625vw);
-    padding-bottom: 8%;
+    /* padding-bottom: 8%; */
     text-align: center;
 }
 
@@ -84,11 +94,11 @@ img {
 }
 
 #timer {
-    padding-top: 10%;
+    /* padding-top: 10%; */
 }
 
 #counter {
-    padding-bottom: 10%;
+    /* padding-bottom: 10%; */
 }
 
 button {
@@ -103,7 +113,7 @@ button {
     display: inline-block;
     font-family: 'Berkshire Swash', cursive;
     font-size: 2vmin;
-    margin: 4% 2%;
+    /* margin: 4% 2%; */
     cursor: pointer;
 }
 
@@ -117,13 +127,13 @@ button:hover {
     border: none;
     /* outline: inherit; */
     color: white;
-    padding: 8% 15%;
+    /* padding: 8% 15%; */
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-family: 'Berkshire Swash', cursive;
     font-size: 2vmin;
-    margin: 4% 2%;
+    /* margin: 4% 2%; */
     cursor: pointer;
 }
 
