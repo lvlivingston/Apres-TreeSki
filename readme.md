@@ -46,15 +46,15 @@ This game was built using HTML, CSS, vanilla JavaScript & Canvas.
 - [ ] Adjust responsiveness for additional screen sizes
 - [ ] Adjust user experience, so train scrolls up onto screen rathering than appearing
 - [ ] Adjust collision detection functions to match exact image sizes, rather than current boxes
-- [ ] Ability to pick up a pretzel or beer on the way down gaining an additional life
+- [ ] Ability to pick up a pretzel or beer on the way down to gain an additional life
 
 ###### Long-Term Stretch Goals
 - [ ] Adjust canvas to scroll left and right to add more surprise finds
 - [ ] Ability to play using the computer mouse
 - [ ] Ability to play on mobile (reacts to touch events)
 - [ ] Include moving obstacles i.e. other skiers/snowboarders, animals, etc.
-- [ ] Add point system based on speed & surprise finds
-- [ ] Include immediate 'game over' function by triggering an avalanche (if hit)
+- [ ] Add point system based on speed and surprise finds
+- [ ] Include immediate 'game over' function by triggering an avalanche
 - [ ] Ability to choose your player "Johannes" or "Katarina"
 - [ ] Option to race computer player down the hill
 
