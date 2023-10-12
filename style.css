@@ -103,22 +103,23 @@ img {
 
 button {
     background-color: #4CAF50;
-    box-shadow: 50%;
-    border: none;
-    /* outline: inherit; */
+    border: 0;
+    border-radius: 56px;
     color: white;
-    padding: 8% 15%;
-    text-align: center;
-    text-decoration: none;
+    cursor: pointer;
     display: inline-block;
     font-family: 'Berkshire Swash', cursive;
-    font-size: 2vmin;
-    /* margin: 4% 2%; */
-    cursor: pointer;
+    font-size: 2.8vmin;
+    padding: 8% 15%;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: all .3s;
 }
 
 button:hover {
     background-color: #217224;
+    transform: scale(1.05);
 }
 
 #tryAgainButton {
@@ -140,3 +141,6 @@ button:hover {
 #tryAgainButton:hover {
     background-color: #0f8bd9;
 }
+
+
+
