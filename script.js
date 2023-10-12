@@ -19,18 +19,26 @@ let skiWinner = false;
 let countdownTimeout;
 let healthScore = 3;
 
+const skierImg = new Image();
+skierImg.src = "./images/skierDownhill.png";
+
 class Player {
-    constructor(x, y, width, height, color) {
+    constructor(x, y, width, height, color, image) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
         this.color = color;
+        this.image = image;
         this.hasBeenHit = false;
     }
     render() {
+        if (this.image) {
+            ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+        } else {
         ctx.fillStyle = this.color;
         ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
     }
 }
 
@@ -51,7 +59,7 @@ const trainHeight = canvas.height * .12;
 const trainX = ((canvas.width - trainWidth) - (canvas.width * .1))
 const trainY = canvas.height - trainHeight
 
-const skier = new Player(skierX, skierY, skierWidth, skierHeight, "blue", false);
+const skier = new Player(skierX, skierY, skierWidth, skierHeight, "blue", skierImg, false);
 const trees = [
     new Player(Math.random() * canvas.width - treeWidthOne, Math.random() * canvas.height + treeHeightOne, treeWidthOne, treeHeightOne, "#217224", false),
     new Player(Math.random() * canvas.width - treeWidthTwo, Math.random() * canvas.height + treeHeightTwo, treeWidthTwo, treeHeightTwo, "#217224", false),

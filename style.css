@@ -35,7 +35,7 @@ body {
     width: 90%;
     height: 100%;
     position: relative;
-    padding-right: -10%;
+    /* padding-right: -10%; */
 }
 
 #infoBox {
