@@ -27,6 +27,10 @@ const mediumTreeImg = new Image();
 mediumTreeImg.src = "./images/mediumTree.png";
 const largeTreeImg = new Image();
 largeTreeImg.src = "./images/largeTree.png";
+const hutImg = new Image();
+hutImg.src = "./images/hut.png";
+const trainImg = new Image();
+trainImg.src = "./images/train.png";
 
 class Player {
     constructor(x, y, width, height, color, image) {
@@ -86,8 +90,8 @@ const trees = [
     new Player(Math.random() * canvas.width - treeWidthTwo, Math.random() * canvas.height + treeHeightTwo, treeWidthTwo, treeHeightTwo, "#217224", mediumTreeImg, false),
     new Player(Math.random() * canvas.width - treeWidthThree, Math.random() * canvas.height + treeHeightThree, treeWidthThree, treeHeightThree, "#217224", largeTreeImg, false),
 ]
-const hut = new Player(0,0, hutWidth, hutHeight, "brown", false);
-const train = new Player(trainX, trainY, trainWidth, trainHeight, "purple", false);
+const hut = new Player(0,0, hutWidth, hutHeight, "brown", hutImg, false);
+const train = new Player(trainX, trainY, trainWidth, trainHeight, "purple", trainImg, false);
 
 /* ----- FUNCTIONS ---------- */
 function startGame() {
