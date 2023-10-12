@@ -272,7 +272,7 @@ function zeroHealthScore () {
 }
 
 function timesUp () {
-    counterElement.textContent = "Oje, You missed the train!";
+    counterElement.textContent = "Oh je, You missed the train!";
     counterElement.style.color = 'orange';
     winnerView ();
 }

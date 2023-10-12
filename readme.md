@@ -22,15 +22,15 @@ You've won when your skier makes it to the bottom of the ski slope and onto the 
 [Click Here to Play the Game Now](https://lvlivingston.github.io/p1-project/)
 
 ---
-### Screenshots 
+### Screenshots of the Game
 
-###### Screen at Game Start
+###### Game Start
 ![Start Screen](./images/gameStartActual.png)
 
 ###### During Gameplay
 ![During Game](./images/middleOfGameActual.png)
 
-###### End Screens Options (Winner vs. Two Losing Options)
+###### End Options (Winner vs. Two Losing Options)
 ![Winner](./images/winnerScreenActual.png)
 ![Loser - Option One](./images/loserOneActual.png)
 ![Loser - Option Two](./images/loserTwoActual.png)
