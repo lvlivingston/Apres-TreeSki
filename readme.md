@@ -1,10 +1,8 @@
-# **Après-TreeSki - A Browser Based Game**
-Created by Leah Livingston
+# **Après-TreeSki**
+ A Browser Based Game created by Leah Livingston
 
+---
 Do you remember Chris Pirih's classic 1991 computer game ["SkiFree"](https://classicreload.com/win3x-skifree.html#)? If you enjoyed running from the abominal snowman back then, you'll love this version set in the Austrian Alps!
-
-
-["Let's Play the Game"](https://lvlivingston.github.io/p1-project/)
 
 ###### Let's set the scene...
 Oje! After skiing all morning, you spent the entire afternoon in the Stúbe hut during après-ski. The last train home is in one minute, so you're cutting it close. To make the train, you'll have to take a shortcut through the trees; and let's just say, you're not in your best state to ski. Scheiße!
@@ -21,6 +19,8 @@ Click the ["Auf geht's!"](https://www.gymglish.com/en/wunderbla/german-vocabular
 ###### How to win
 You've won when your skier makes it to the bottom of the ski slope and onto the train in under one minute. If you hit three trees on the way down, you lose!
 
+[Click Here to Play the Game Now](https://lvlivingston.github.io/p1-project/)
+
 ---
 ### Screenshots 
 
@@ -30,7 +30,7 @@ You've won when your skier makes it to the bottom of the ski slope and onto the 
 ###### During Gameplay
 ![During Game](./images/middleOfGameActual.png)
 
-###### End Screens Options
+###### End Screens Options (Winner vs. Two Losing Options)
 ![Winner](./images/winnerScreenActual.png)
 ![Loser - Option One](./images/loserOneActual.png)
 ![Loser - Option Two](./images/loserTwoActual.png)
@@ -43,15 +43,26 @@ This game was built using HTML, CSS, vanilla JavaScript & Canvas.
 ### **Next Steps**
 
 ###### Short-Term Stretch Goals
+- [ ] Adjust responsiveness for additional screen sizes
+- [ ] Adjust user experience, so train scrolls up onto screen rathering than appearing
+- [ ] Adjust collision detection functions to match exact image sizes, rather than current boxes
+- [ ] Ability to pick up a pretzel or beer on the way down gaining an additional life
 
 ###### Long-Term Stretch Goals
+- [ ] Adjust canvas to scroll left and right to add more surprise finds
+- [ ] Ability to play using the computer mouse
+- [ ] Ability to play on mobile (reacts to touch events)
+- [ ] Include moving obstacles i.e. other skiers/snowboarders, animals, etc.
+- [ ] Add point system based on speed & surprise finds
+- [ ] Include immediate 'game over' function by triggering an avalanche (if hit)
+- [ ] Ability to choose your player "Johannes" or "Katarina"
+- [ ] Option to race computer player down the hill
 
 
 
 
-
-
-# Planning Materials & Original Pitch Materials are found below
+---
+# Planning Materials & Original Pitch below
 
 ### **An elevator pitch of your game idea**
 
@@ -80,16 +91,14 @@ Ski down the hill in under one minute, and you win!
 
 ---
 ### **What tech stack you plan on using (example: using Tailwind for styling)**
-
 This game is built using HTML, CSS, JavaScript & Canvas.
 
 
 
 ---
 ### **Wireframes of your game**
-
 The minimum viable product (MVP) goal is for the user interface to show basic CSS in order for a functional game to be played.
----
+
 ###### Starting Screen
 ![Start Screen](./images/gameStartWireFrame.png)
 ---
@@ -105,11 +114,6 @@ The minimum viable product (MVP) goal is for the user interface to show basic CS
 ---
 ![Loser](./images/loserWireFrame.png)
 
----
-The stretch goal is for the user interface and experience to mimic the graphics and style of the original computer game from 1991.
-
-![Screenshot of SkiFree](./images/skiFree.png)
-
 
 
 ---
@@ -123,7 +127,7 @@ The stretch goal is for the user interface and experience to mimic the graphics 
 ###### Functionality
 - [X] Includes a start button to activate the beginning of the game
 - [X] Include one player functionality
-- [X] Include function to allow player to move via the keyboard's keys
+- [X] Include function to allow player to move via the keyboard keys
 - [X] Include obstacles (placed randomly) 
 - [X] Include countdown timer
 - [X] Include finish line for player to win
@@ -137,7 +141,7 @@ The stretch goal is for the user interface and experience to mimic the graphics 
 
 ###### Style
 - [X] Includes CSS & Canvas styling to match that of SkiFree
-
+![Screenshot of SkiFree](./images/skiFree.png)
 
 ###### Functionality
 - [X] Include health score tracker with three (3) lives, meaning with each crash, you lose one life.
