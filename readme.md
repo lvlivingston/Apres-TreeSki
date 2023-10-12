@@ -32,7 +32,7 @@ You've won when your skier makes it to the bottom of the ski slope and onto the 
 
 ###### End Options (Winner vs. Two Losing Options)
 ![Winner](./images/winnerScreenActual.png)
-![Loser - Option One](./images/loserOneActual.png)
+![Loser - Option One](./images/loser1Actual.png)
 ![Loser - Option Two](./images/loser2Actual.png)
 
 ---
