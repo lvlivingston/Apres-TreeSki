@@ -22,20 +22,10 @@ body {
                           "canvas canvas canvas infoBox";
 }
 
-/* @media screen and (max-height: 371px) {
-    #infoBox {
-        .flex-grid {
-            display: block;
-        }    
-    }
-
-} */
-
 #canvas {
-    width: 90%;
+    width: 100%;
     height: 100%;
     position: relative;
-    /* padding-right: -10%; */
 }
 
 #infoBox {
