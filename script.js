@@ -217,12 +217,12 @@ function gameloop() {
         return;
     }
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    if (currentlyPressedKeys["k"]) {
+    if (currentlyPressedKeys["s"]) {
         hut.y -= 10;
     }
     hut.render();
     for (let i = 0; i < trees.length; i++) {
-        if (currentlyPressedKeys["k"]) {
+        if (currentlyPressedKeys["s"]) {
             trees[i].y -= 10;
         }
         if (trees[i].y < 0 - trees[i].height && timeRemaining > 5) {
