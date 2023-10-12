@@ -53,15 +53,15 @@ body {
 h2 {
     margin: 3px;
     font-family: 'Berkshire Swash', cursive;
-    font-size: 4vmin;
+    font-size: 4.5vmin;
     font-style: bold;
     text-align: center;
     /* padding-bottom: 10%; */
 }
 
 img {
-    max-width: 40%;
-    height: 10%;
+    /* height: 10%; */
+    max-width: 20%;
     align-self: center;
     /* padding-bottom: 10%; */
 }
@@ -69,16 +69,16 @@ img {
 #intro {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    font-size: 1vmin;
+    /* font-size: 2.3vmin; */
     font-style: normal;
     font-size: calc(8px + 0.390625vw);
-    /* padding-bottom: 8%; */
+    padding: 8%;
     text-align: center;
 }
 
 .directions {
     font-family: 'Roboto', sans-serif;
-    font-size: 3vmin;
+    /* font-size: 2.2vmin; */
     font-style: italic;
     font-size: calc(8px + 0.390625vw);
     text-align: center;
@@ -88,9 +88,9 @@ img {
 .timer {
     font-family: 'Bebas Neue', sans-serif;
     font-weight: bold;
-    font-size: 3vmin;
-    font-size: calc(12px + 0.390625vw);
     text-align: center;
+    /* font-size: 3vmin; */
+    font-size: calc(12px + 0.390625vw);
 }
 
 #timer {
@@ -124,22 +124,23 @@ button:hover {
 
 #tryAgainButton {
     background-color: #24a0ed;
-    box-shadow: 50%;
-    border: none;
-    /* outline: inherit; */
+    border: 0;
+    border-radius: 56px;
     color: white;
-    /* padding: 8% 15%; */
-    text-align: center;
-    text-decoration: none;
+    cursor: pointer;
     display: inline-block;
     font-family: 'Berkshire Swash', cursive;
-    font-size: 2vmin;
-    /* margin: 4% 2%; */
-    cursor: pointer;
+    font-size: 2.8vmin;
+    padding: 8% 15%;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: all .3s;
 }
 
 #tryAgainButton:hover {
     background-color: #0f8bd9;
+    transform: scale(1.05);
 }
 
 

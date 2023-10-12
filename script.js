@@ -256,19 +256,19 @@ function winnerView () {
 }
 
 function zeroHealthScore () {
-    counterElement.textContent = "You hit too many trees!";
+    counterElement.textContent = "Oje, You hit too many trees!";
     counterElement.style.color = 'red';
     winnerView ();
 }
 
 function timesUp () {
-    counterElement.textContent = "You missed the train!";
+    counterElement.textContent = "Oje, You missed the train!";
     counterElement.style.color = 'orange';
     winnerView ();
 }
 
 function winnerMessage () {
-    counterElement.textContent = "You made it!";
+    counterElement.textContent = "Geschafft! You made it!";
     counterElement.style.color = 'purple';
     winnerView ();
 }
