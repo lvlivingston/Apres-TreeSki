@@ -1,8 +1,8 @@
-# **Après-TreeSki**
- A Browser Based Game created by Leah Livingston
+## **Après-TreeSki**
+ A browser based game created by Leah Livingston
 
 ---
-Do you remember Chris Pirih's classic 1991 computer game ["SkiFree"](https://classicreload.com/win3x-skifree.html#)? If you enjoyed running from the abominal snowman back then, you'll love this version set in the Austrian Alps!
+Do you remember Chris Pirih's classic 1991 computer game ["SkiFree"](https://classicreload.com/win3x-skifree.html#){:target="_blank" rel="noopener"}? If you enjoyed running from the abominal snowman back then, you'll love this version set in the Austrian Alps!
 
 ###### Let's set the scene...
 Oje! After skiing all morning, you spent the entire afternoon in the Stúbe hut during après-ski. The last train home is in one minute, so you're cutting it close. To make the train, you'll have to take a shortcut through the trees; and let's just say, you're not in your best state to ski. Scheiße!
