@@ -43,6 +43,7 @@ This game was built using HTML, CSS, vanilla JavaScript & Canvas.
 ### **Next Steps**
 
 ###### Short-Term Stretch Goals
+- [ ] Add boundaries to the left and right of screen to ensure skier can't ski out of view
 - [ ] Adjust responsiveness for additional screen sizes
 - [ ] Adjust user experience, so train scrolls up onto screen rathering than appearing
 - [ ] Adjust collision detection functions to match exact image sizes, rather than current boxes
