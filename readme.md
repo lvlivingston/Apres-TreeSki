@@ -17,7 +17,7 @@ Click the ["Auf geht's!"](https://www.gymglish.com/en/wunderbla/german-vocabular
 
 
 ###### How to win
-You've won when your skier makes it to the bottom of the ski slope and onto the train in under one minute. If you hit three trees on the way down, you lose!
+You've won when your skier makes it to the bottom of the ski slope and onto the train in under one minute. If you hit three trees on the way down or don't reach the train, you lose.
 
 [Click Here to Play the Game Now](https://lvlivingston.github.io/p1-project/)
 
