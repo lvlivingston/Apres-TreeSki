@@ -266,7 +266,7 @@ function winnerView () {
 }
 
 function zeroHealthScore () {
-    counterElement.textContent = "Oje, You hit too many trees!";
+    counterElement.textContent = "Oh je, You hit too many trees!";
     counterElement.style.color = 'red';
     winnerView ();
 }

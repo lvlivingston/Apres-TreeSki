@@ -5,7 +5,7 @@
 Do you remember Chris Pirih's classic 1991 computer game ["SkiFree"](https://classicreload.com/win3x-skifree.html#)? If you enjoyed running from the abominal snowman back then, you'll love this version set in the Austrian Alps!
 
 ###### Let's set the scene...
-Oje! After skiing all morning, you spent the entire afternoon in the Stúbe hut during après-ski. The last train home is in one minute, so you're cutting it close. To make the train, you'll have to take a shortcut through the trees; and let's just say, you're not in your best state to ski. Scheiße!
+[Oh je!](https://www.gymglish.com/en/wunderbla/german-vocabulary/oh-je) After skiing all morning, you spent the entire afternoon in the Stúbe hut during après-ski. The last train home is in one minute, so you're cutting it close. To make the train, you'll have to take a shortcut through the trees; and let's just say, you're not in your best state to ski. Scheiße!
 
 
 ###### Your goal?
