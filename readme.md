@@ -49,6 +49,7 @@ This game was built using HTML, CSS, vanilla JavaScript & Canvas.
 - [ ] Ability to pick up a pretzel or beer on the way down to gain an additional life
 
 ###### Long-Term Stretch Goals
+- [ ] Add noises for when you hit a tree and ski, as well as music at the end
 - [ ] Adjust canvas to scroll left and right to add more surprise finds
 - [ ] Ability to play using the computer mouse
 - [ ] Ability to play on mobile (reacts to touch events)
