@@ -53,7 +53,7 @@ This game was built using HTML, CSS, vanilla JavaScript & Canvas.
 - [ ] Ability to play using the computer mouse
 - [ ] Ability to play on mobile (reacts to touch events)
 - [ ] Include moving obstacles i.e. other skiers/snowboarders, animals, etc.
-- [ ] Add point system based on speed and surprise finds
+- [ ] Add point system based on number of wins, speed, and surprise finds
 - [ ] Include immediate 'game over' function by triggering an avalanche
 - [ ] Ability to choose your player "Johannes" or "Katarina"
 - [ ] Option to race computer player down the hill
