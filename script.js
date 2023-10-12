@@ -21,6 +21,12 @@ let healthScore = 3;
 
 const skierImg = new Image();
 skierImg.src = "./images/skierDownhill.png";
+const smallTreeImg = new Image();
+smallTreeImg.src = "./images/smallTree.png";
+const mediumTreeImg = new Image();
+mediumTreeImg.src = "./images/mediumTree.png";
+const largeTreeImg = new Image();
+largeTreeImg.src = "./images/largeTree.png";
 
 class Player {
     constructor(x, y, width, height, color, image) {
@@ -47,8 +53,8 @@ const skierY = canvas.height * .15;
 const skierWidth = canvas.width * .04;
 const skierHeight = canvas.height * .08;
 const treeWidthOne = canvas.width * .05;
-const treeWidthTwo = canvas.width * .1;
-const treeWidthThree = canvas.width * .15;
+const treeWidthTwo = canvas.width * .08;
+const treeWidthThree = canvas.width * .10;
 const treeHeightOne = canvas.height * .08;
 const treeHeightTwo = canvas.height * .12;
 const treeHeightThree = canvas.height * .2;
@@ -61,24 +67,24 @@ const trainY = canvas.height - trainHeight
 
 const skier = new Player(skierX, skierY, skierWidth, skierHeight, "blue", skierImg, false);
 const trees = [
-    new Player(Math.random() * canvas.width - treeWidthOne, Math.random() * canvas.height + treeHeightOne, treeWidthOne, treeHeightOne, "#217224", false),
-    new Player(Math.random() * canvas.width - treeWidthTwo, Math.random() * canvas.height + treeHeightTwo, treeWidthTwo, treeHeightTwo, "#217224", false),
-    new Player(Math.random() * canvas.width - treeWidthThree, Math.random() * canvas.height + treeHeightThree, treeWidthThree, treeHeightThree, "#217224", false),
-    new Player(Math.random() * canvas.width - treeWidthOne, Math.random() * canvas.height + treeHeightOne, treeWidthOne, treeHeightOne, "#217224", false),
-    new Player(Math.random() * canvas.width - treeWidthTwo, Math.random() * canvas.height + treeHeightTwo, treeWidthTwo, treeHeightTwo, "#217224", false),
-    new Player(Math.random() * canvas.width - treeWidthThree, Math.random() * canvas.height + treeHeightThree, treeWidthThree, treeHeightThree, "#217224", false),
-    new Player(Math.random() * canvas.width - treeWidthOne, Math.random() * canvas.height + treeHeightOne, treeWidthOne, treeHeightOne, "#217224", false),
-    new Player(Math.random() * canvas.width - treeWidthTwo, Math.random() * canvas.height + treeHeightTwo, treeWidthTwo, treeHeightTwo, "#217224", false),
-    new Player(Math.random() * canvas.width - treeWidthThree, Math.random() * canvas.height + treeHeightThree, treeWidthThree, treeHeightThree, "#217224", false),
-    new Player(Math.random() * canvas.width - treeWidthOne, Math.random() * canvas.height + treeHeightOne, treeWidthOne, treeHeightOne, "#217224", false),
-    new Player(Math.random() * canvas.width - treeWidthTwo, Math.random() * canvas.height + treeHeightTwo, treeWidthTwo, treeHeightTwo, "#217224", false),
-    new Player(Math.random() * canvas.width - treeWidthThree, Math.random() * canvas.height + treeHeightThree, treeWidthThree, treeHeightThree, "#217224", false),
-    new Player(Math.random() * canvas.width - treeWidthOne, Math.random() * canvas.height + treeHeightOne, treeWidthOne, treeHeightOne, "#217224", false),
-    new Player(Math.random() * canvas.width - treeWidthTwo, Math.random() * canvas.height + treeHeightTwo, treeWidthTwo, treeHeightTwo, "#217224", false),
-    new Player(Math.random() * canvas.width - treeWidthThree, Math.random() * canvas.height + treeHeightThree, treeWidthThree, treeHeightThree, "#217224", false),
-    new Player(Math.random() * canvas.width - treeWidthOne, Math.random() * canvas.height + treeHeightOne, treeWidthOne, treeHeightOne, "#217224", false),
-    new Player(Math.random() * canvas.width - treeWidthTwo, Math.random() * canvas.height + treeHeightTwo, treeWidthTwo, treeHeightTwo, "#217224", false),
-    new Player(Math.random() * canvas.width - treeWidthThree, Math.random() * canvas.height + treeHeightThree, treeWidthThree, treeHeightThree, "#217224", false),
+    new Player(Math.random() * canvas.width - treeWidthOne, Math.random() * canvas.height + treeHeightOne, treeWidthOne, treeHeightOne, "#217224", smallTreeImg, false),
+    new Player(Math.random() * canvas.width - treeWidthTwo, Math.random() * canvas.height + treeHeightTwo, treeWidthTwo, treeHeightTwo, "#217224", mediumTreeImg, false),
+    new Player(Math.random() * canvas.width - treeWidthThree, Math.random() * canvas.height + treeHeightThree, treeWidthThree, treeHeightThree, "#217224", largeTreeImg, false),
+    new Player(Math.random() * canvas.width - treeWidthOne, Math.random() * canvas.height + treeHeightOne, treeWidthOne, treeHeightOne, "#217224", smallTreeImg, false),
+    new Player(Math.random() * canvas.width - treeWidthTwo, Math.random() * canvas.height + treeHeightTwo, treeWidthTwo, treeHeightTwo, "#217224", mediumTreeImg, false),
+    new Player(Math.random() * canvas.width - treeWidthThree, Math.random() * canvas.height + treeHeightThree, treeWidthThree, treeHeightThree, "#217224", largeTreeImg, false),
+    new Player(Math.random() * canvas.width - treeWidthOne, Math.random() * canvas.height + treeHeightOne, treeWidthOne, treeHeightOne, "#217224", smallTreeImg, false),
+    new Player(Math.random() * canvas.width - treeWidthTwo, Math.random() * canvas.height + treeHeightTwo, treeWidthTwo, treeHeightTwo, "#217224", mediumTreeImg, false),
+    new Player(Math.random() * canvas.width - treeWidthThree, Math.random() * canvas.height + treeHeightThree, treeWidthThree, treeHeightThree, "#217224", largeTreeImg, false),
+    new Player(Math.random() * canvas.width - treeWidthOne, Math.random() * canvas.height + treeHeightOne, treeWidthOne, treeHeightOne, "#217224", smallTreeImg, false),
+    new Player(Math.random() * canvas.width - treeWidthTwo, Math.random() * canvas.height + treeHeightTwo, treeWidthTwo, treeHeightTwo, "#217224", mediumTreeImg, false),
+    new Player(Math.random() * canvas.width - treeWidthThree, Math.random() * canvas.height + treeHeightThree, treeWidthThree, treeHeightThree, "#217224", largeTreeImg, false),
+    new Player(Math.random() * canvas.width - treeWidthOne, Math.random() * canvas.height + treeHeightOne, treeWidthOne, treeHeightOne, "#217224", smallTreeImg, false),
+    new Player(Math.random() * canvas.width - treeWidthTwo, Math.random() * canvas.height + treeHeightTwo, treeWidthTwo, treeHeightTwo, "#217224", mediumTreeImg, false),
+    new Player(Math.random() * canvas.width - treeWidthThree, Math.random() * canvas.height + treeHeightThree, treeWidthThree, treeHeightThree, "#217224", largeTreeImg, false),
+    new Player(Math.random() * canvas.width - treeWidthOne, Math.random() * canvas.height + treeHeightOne, treeWidthOne, treeHeightOne, "#217224", smallTreeImg, false),
+    new Player(Math.random() * canvas.width - treeWidthTwo, Math.random() * canvas.height + treeHeightTwo, treeWidthTwo, treeHeightTwo, "#217224", mediumTreeImg, false),
+    new Player(Math.random() * canvas.width - treeWidthThree, Math.random() * canvas.height + treeHeightThree, treeWidthThree, treeHeightThree, "#217224", largeTreeImg, false),
 ]
 const hut = new Player(0,0, hutWidth, hutHeight, "brown", false);
 const train = new Player(trainX, trainY, trainWidth, trainHeight, "purple", false);
