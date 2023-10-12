@@ -103,61 +103,61 @@ function startGame() {
 const currentlyPressedKeys = {}
 function movementHandler() {
     const speed = 20;
-    if (currentlyPressedKeys["i"]) {
+    if (currentlyPressedKeys["w"]) {
         let isDiagonal = false;
-        if (currentlyPressedKeys["j"] || currentlyPressedKeys["l"]) {
+        if (currentlyPressedKeys["a"] || currentlyPressedKeys["d"]) {
             isDiagonal = true;
         }
         skier.y -= isDiagonal ? speed : speed;
     }
-    if (currentlyPressedKeys["k"]) {
+    if (currentlyPressedKeys["s"]) {
         let isDiagonal = false;
-        if (currentlyPressedKeys["j"] || currentlyPressedKeys["l"]) {
+        if (currentlyPressedKeys["a"] || currentlyPressedKeys["d"]) {
             isDiagonal = true;
         }
         if (skier.y < (canvas.height/2)) {
             skier.y += isDiagonal ? speed : speed;
         }
     }
-    if (currentlyPressedKeys["j"]) {
+    if (currentlyPressedKeys["a"]) {
         let isDiagonal = false;
-        if (currentlyPressedKeys["i"] || currentlyPressedKeys["l"]) {
+        if (currentlyPressedKeys["w"] || currentlyPressedKeys["d"]) {
             isDiagonal = true;
         }
         skier.x -= isDiagonal ? speed : speed;
     }
-    if (currentlyPressedKeys["l"]) {
+    if (currentlyPressedKeys["d"]) {
         let isDiagonal = false;
-        if (currentlyPressedKeys["i"] || currentlyPressedKeys["k"]) {
+        if (currentlyPressedKeys["w"] || currentlyPressedKeys["s"]) {
             isDiagonal = true;
         }
         skier.x += isDiagonal ? speed : speed;
     } 
     if (timeRemaining <= 5) {
-        if (currentlyPressedKeys["i"]) {
+        if (currentlyPressedKeys["w"]) {
             let isDiagonal = false;
-            if (currentlyPressedKeys["j"] || currentlyPressedKeys["l"]) {
+            if (currentlyPressedKeys["a"] || currentlyPressedKeys["d"]) {
                 isDiagonal = true;
             }
             skier.y -= isDiagonal ? speed : speed;
         }
-        if (currentlyPressedKeys["k"]) {
+        if (currentlyPressedKeys["s"]) {
             let isDiagonal = false;
-            if (currentlyPressedKeys["j"] || currentlyPressedKeys["l"]) {
+            if (currentlyPressedKeys["a"] || currentlyPressedKeys["d"]) {
                 isDiagonal = true;
             }
             skier.y += isDiagonal ? speed : speed;
         }
-        if (currentlyPressedKeys["j"]) {
+        if (currentlyPressedKeys["a"]) {
             let isDiagonal = false;
-            if (currentlyPressedKeys["i"] || currentlyPressedKeys["l"]) {
+            if (currentlyPressedKeys["w"] || currentlyPressedKeys["d"]) {
                 isDiagonal = true;
             }
             skier.x -= isDiagonal ? speed : speed;
         }
-        if (currentlyPressedKeys["l"]) {
+        if (currentlyPressedKeys["d"]) {
             let isDiagonal = false;
-            if (currentlyPressedKeys["i"] || currentlyPressedKeys["k"]) {
+            if (currentlyPressedKeys["w"] || currentlyPressedKeys["s"]) {
                 isDiagonal = true;
             }
             skier.x += isDiagonal ? speed : speed;
