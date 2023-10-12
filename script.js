@@ -18,6 +18,7 @@ let timeRemaining = 60;
 let skiWinner = false;
 let countdownTimeout;
 let healthScore = 3;
+let trainReachedBottom = false;
 
 const skierImg = new Image();
 skierImg.src = "./images/skierDownhill.png";
@@ -206,6 +207,14 @@ function healthScoreTracker () {
     }
 }
 
+// Potential function for train action
+// function stopTrain () {
+//     if (train.y + train.height === canvas.height) {
+//         trainReachedBottom = true;
+//         train.y -= 10;
+//     }
+// }
+
 const gameInterval = setInterval(gameloop, 80);
 function gameloop() {
     if (!gameStarted) {
@@ -240,6 +249,7 @@ function gameloop() {
     }
     // Stretch Goal -- have the train scroll up onto the screen 
     if (timeRemaining <= 5) {
+        // train.y -= 10;
         train.render();
     }
     if (timeRemaining > 0 && detectTrainHit(skier, train)) {

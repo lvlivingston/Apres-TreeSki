@@ -1,9 +1,58 @@
-# **Project 1 - A Browser Based Game**
+# **Après-TreeSki - A Browser Based Game**
 Created by Leah Livingston
 
+Do you remember Chris Pirih's classic 1991 computer game ["SkiFree"](https://classicreload.com/win3x-skifree.html#)? If you enjoyed running from the abominal snowman back then, you'll love this version set in the Austrian Alps!
 
+
+["Let's Play the Game"](https://lvlivingston.github.io/p1-project/)
+
+###### Let's set the scene...
+Oje! After skiing all morning, you spent the entire afternoon in the Stúbe hut during après-ski. The last train home is in one minute, so you're cutting it close. To make the train, you'll have to take a shortcut through the trees; and let's just say, you're not in your best state to ski. Scheiße!
+
+
+###### Your goal?
+Ski the shortcut through the trees to make the last train home. 
+
+
+###### How to play
+Click the ["Auf geht's!"](https://www.gymglish.com/en/wunderbla/german-vocabulary/auf-gehts) button and hold down the "S" key when you're ready to ski. To navigate, press the "A" key to turn left, the "D" key to turn right. Don't be afraid to test out key presses... there might be a few surprises built in for you to find!
+
+
+###### How to win
+You've won when your skier makes it to the bottom of the ski slope and onto the train in under one minute. If you hit three trees on the way down, you lose!
 
 ---
+### Screenshots 
+
+###### Screen at Game Start
+![Start Screen](./images/gameStartActual.png)
+
+###### During Gameplay
+![During Game](./images/middleOfGameActual.png)
+
+###### End Screens Options
+![Winner](./images/winnerScreenActual.png)
+![Loser - Option One](./images/loserOneActual.png)
+![Loser - Option Two](./images/loserTwoActual.png)
+
+---
+### **Tech Stack** 
+This game was built using HTML, CSS, vanilla JavaScript & Canvas.
+
+---
+### **Next Steps**
+
+###### Short-Term Stretch Goals
+
+###### Long-Term Stretch Goals
+
+
+
+
+
+
+# Planning Materials & Original Pitch Materials are found below
+
 ### **An elevator pitch of your game idea**
 
 Do you remember Chris Pirih's classic 1991 computer game ["SkiFree"](https://classicreload.com/win3x-skifree.html#)? If you enjoyed running from the abominal snowman back then, you'll love this version set in the Austrian Alps!
@@ -42,19 +91,19 @@ This game is built using HTML, CSS, JavaScript & Canvas.
 The minimum viable product (MVP) goal is for the user interface to show basic CSS in order for a functional game to be played.
 ---
 ###### Starting Screen
-![Start Screen](./images/gameStart.png)
+![Start Screen](./images/gameStartWireFrame.png)
 ---
 ###### During Gameplay
-![During Game](./images/middleOfGame.png)
+![During Game](./images/middleOfGameWireFrame.png)
 
 ---
-![Last 10 Seconds](./images/lastTenSeconds.png)
+![Last 10 Seconds](./images/lastTenSecondsWireFrame.png)
 ---
 ###### End Screens for Winner vs. Loser
-![Winner](./images/winnerScreen.png)
+![Winner](./images/winnerScreenWireFrame.png)
 
 ---
-![Loser](./images/loser.png)
+![Loser](./images/loserWireFrame.png)
 
 ---
 The stretch goal is for the user interface and experience to mimic the graphics and style of the original computer game from 1991.
@@ -68,17 +117,17 @@ The stretch goal is for the user interface and experience to mimic the graphics 
 
 
 ###### Style
-- [ ] Includes basic CSS in block form to ensure functionality works
+- [X] Includes basic CSS in block form to ensure functionality works
 
 
 ###### Functionality
-- [ ] Includes a start button to activate the beginning of the game
-- [ ] Include one player functionality
-- [ ] Include function to allow player to move via the keyboard's arrow keys (or using the computer mouse)
-- [ ] Include obstacles (placed randomly) 
-- [ ] Include countdown timer
-- [ ] Include finish line for player to win
-- [ ] Include a start over button to reset game from the top
+- [X] Includes a start button to activate the beginning of the game
+- [X] Include one player functionality
+- [X] Include function to allow player to move via the keyboard's keys
+- [X] Include obstacles (placed randomly) 
+- [X] Include countdown timer
+- [X] Include finish line for player to win
+- [X] Include a start over button to reset game from the top
 
 
 
@@ -87,21 +136,22 @@ The stretch goal is for the user interface and experience to mimic the graphics 
 
 
 ###### Style
-- Includes CSS & Canvas styling to match that of SkiFree
+- [X] Includes CSS & Canvas styling to match that of SkiFree
 
 
 ###### Functionality
-- Include health score tracker with three (3) lives, meaning with each crash, you lose one life.
-- Ability to pick up a pretzel or beer on the way down to  add another life.
-- Include moving obstacles i.e. other skiers/snowboarders, animals, etc.
-- Include immediate 'game over' function by triggering an avalanche
-- Ability to choose your player "Johannes" or "Katarina"
-- Option to race computer player down the hill
-- Ability to play on mobile (reacts to touch events)
+- [X] Include health score tracker with three (3) lives, meaning with each crash, you lose one life.
+- [ ] Ability to pick up a pretzel or beer on the way down to  add another life.
+- [ ] Include moving obstacles i.e. other skiers/snowboarders, animals, etc.
+- [ ] Include immediate 'game over' function by triggering an avalanche
+- [ ] Ability to choose your player "Johannes" or "Katarina"
+- [ ] Option to race computer player down the hill
+- [ ] Ability to play using the computer mouse
+- [ ] Ability to play on mobile (reacts to touch events)
 
 
 
 ---
 ### **Any potential roadblocks**
-- How to create a gameboard that is longer than the screen seen at the start
+- [X] How to create a gameboard that is longer than the screen seen at the start
 
