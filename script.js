@@ -207,14 +207,6 @@ function healthScoreTracker () {
     }
 }
 
-// Potential function for train action
-// function stopTrain () {
-//     if (train.y + train.height === canvas.height) {
-//         trainReachedBottom = true;
-//         train.y -= 10;
-//     }
-// }
-
 const gameInterval = setInterval(gameloop, 80);
 function gameloop() {
     if (!gameStarted) {
@@ -248,12 +240,8 @@ function gameloop() {
         }
     }
     // Stretch Goal -- have the train scroll up onto the screen 
-        if (skier.y + skier.height >= (canvas.height/2) && timeRemaining <= 5) {
+        if (timeRemaining <= 5) {
             train.render();
-            }
-            trees[i].render();
-        }
-        train.render();
     }
     if (timeRemaining > 0 && detectTrainHit(skier, train)) {
         skiWinner = true;
