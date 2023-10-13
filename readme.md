@@ -133,7 +133,6 @@ The minimum viable product (MVP) goal is for the user interface to show basic CS
 - [X] Include countdown timer
 - [X] Include finish line for player to win
 - [X] Include a start over button to reset game from the top
-- [X] Add boundaries to the left and right of screen to ensure skier can't ski out of view
 
 
 
@@ -147,6 +146,7 @@ The minimum viable product (MVP) goal is for the user interface to show basic CS
 
 ###### Functionality
 - [X] Include health score tracker with three (3) lives, meaning with each crash, you lose one life.
+- [X] Add boundaries to the left and right of screen to ensure skier can't ski out of view
 - [ ] Ability to pick up a pretzel or beer on the way down to  add another life.
 - [ ] Include moving obstacles i.e. other skiers/snowboarders, animals, etc.
 - [ ] Include immediate 'game over' function by triggering an avalanche
