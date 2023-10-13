@@ -45,7 +45,7 @@ This game was built using HTML, CSS, vanilla JavaScript & Canvas.
 ###### Short-Term Stretch Goals
 - [ ] Adjust responsiveness for additional screen sizes
 - [ ] Adjust user experience, so train scrolls up onto screen rathering than appearing
-- [ ] Adjust collision detection functions to match exact image sizes, rather than current boxes
+- [ ] Adjust collision detection functions to match exact image sizes (i.e. triangle trees), rather than current square boxes
 - [ ] Ability to pick up a pretzel or beer on the way down to gain an additional life
 
 ###### Long-Term Stretch Goals
