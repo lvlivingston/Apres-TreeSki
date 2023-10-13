@@ -104,7 +104,7 @@ function startGame() {
 const currentlyPressedKeys = {}
 function movementHandler() {
     const speed = 20;
-    if (currentlyPressedKeys["w"]) {
+    if (currentlyPressedKeys["w"] && (skier.y >= 0)) {
         let isDiagonal = false;
         if (currentlyPressedKeys["a"] || currentlyPressedKeys["d"]) {
             isDiagonal = true;
@@ -120,14 +120,14 @@ function movementHandler() {
             skier.y += isDiagonal ? speed : speed;
         }
     }
-    if (currentlyPressedKeys["a"]) {
+    if (currentlyPressedKeys["a"] && (skier.x >= 0)) {
         let isDiagonal = false;
         if (currentlyPressedKeys["w"] || currentlyPressedKeys["d"]) {
             isDiagonal = true;
         }
         skier.x -= isDiagonal ? speed : speed;
     }
-    if (currentlyPressedKeys["d"]) {
+    if (currentlyPressedKeys["d"] && ((skier.x + skier.width) <= canvas.width)) {
         let isDiagonal = false;
         if (currentlyPressedKeys["w"] || currentlyPressedKeys["s"]) {
             isDiagonal = true;
@@ -135,7 +135,7 @@ function movementHandler() {
         skier.x += isDiagonal ? speed : speed;
     } 
     if (timeRemaining <= 5) {
-        if (currentlyPressedKeys["w"]) {
+        if (currentlyPressedKeys["w"] && (skier.y >= 0)) {
             let isDiagonal = false;
             if (currentlyPressedKeys["a"] || currentlyPressedKeys["d"]) {
                 isDiagonal = true;
@@ -149,14 +149,14 @@ function movementHandler() {
             }
             skier.y += isDiagonal ? speed : speed;
         }
-        if (currentlyPressedKeys["a"]) {
+        if (currentlyPressedKeys["a"] && (skier.x >= 0)) {
             let isDiagonal = false;
             if (currentlyPressedKeys["w"] || currentlyPressedKeys["d"]) {
                 isDiagonal = true;
             }
             skier.x -= isDiagonal ? speed : speed;
         }
-        if (currentlyPressedKeys["d"]) {
+        if (currentlyPressedKeys["d"] && ((skier.x + skier.width) <= canvas.width)) {
             let isDiagonal = false;
             if (currentlyPressedKeys["w"] || currentlyPressedKeys["s"]) {
                 isDiagonal = true;
@@ -248,8 +248,11 @@ function gameloop() {
         }
     }
     // Stretch Goal -- have the train scroll up onto the screen 
-    if (timeRemaining <= 5) {
-        // train.y -= 10;
+        if (skier.y + skier.height >= (canvas.height/2) && timeRemaining <= 5) {
+            train.render();
+            }
+            trees[i].render();
+        }
         train.render();
     }
     if (timeRemaining > 0 && detectTrainHit(skier, train)) {
@@ -290,7 +293,7 @@ function startCountdown() {
         const seconds = timeRemaining % 60;
         counterElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
         timeRemaining--;
-        countdownTimeout = setTimeout(updateTimer, 500);
+        countdownTimeout = setTimeout(updateTimer, 350);
         if (timeRemaining < 1 && skiWinner === false) {
             timesUp ();
             clearInterval(countdownTimeout);
