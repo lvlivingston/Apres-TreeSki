@@ -239,9 +239,8 @@ function gameloop() {
             healthScoreTracker();
         }
     }
-    // Stretch Goal -- have the train scroll up onto the screen 
-        if (timeRemaining <= 5) {
-            train.render();
+    if (timeRemaining <= 5) {
+        train.render();
     }
     if (timeRemaining > 0 && detectTrainHit(skier, train)) {
         skiWinner = true;
