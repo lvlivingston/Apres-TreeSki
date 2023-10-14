@@ -47,6 +47,9 @@ This game was built using HTML, CSS, vanilla JavaScript & Canvas.
 
 ###### Short-Term Stretch Goals
 - [ ] Adjust responsiveness for additional screen sizes
+- [ ] Refactor code of movementHandler function to implement DRY
+- [ ] Change startCountdown function to abide by the single responsibility principle to enhances testability and maintainability
+- [ ] Change use of innerHTML in healthScore function to safer alternative like textContent, createElement or appendChild to reduce chance of cross-site scripting (XSS) attack
 - [ ] Adjust user experience, so train scrolls up onto screen rathering than appearing
 - [ ] Adjust collision detection functions to match exact image sizes (i.e. triangle trees), rather than current square boxes
 - [ ] Ability to pick up a pretzel or beer on the way down to gain an additional life
