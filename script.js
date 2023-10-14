@@ -94,13 +94,14 @@ const trees = [
 const hut = new Player(0,0, hutWidth, hutHeight, "brown", hutImg, false);
 const train = new Player(trainX, trainY, trainWidth, trainHeight, "purple", trainImg, false);
 
-/* ----- FUNCTIONS ---------- */
+/* ----- FUNCTION TO INVOKE THE START OF THE GAME---------- */
 function startGame() {
     gameStarted = true;
     startCountdown();
     startButton.style.display = "none";
 }
 
+/* ----- FUNCTION TO ALLOW SKIER TO MOVE---------- */
 const currentlyPressedKeys = {}
 function movementHandler() {
     const speed = 20;
@@ -166,6 +167,7 @@ function movementHandler() {
     }
 }
 
+/* ----- FUNCTION TO DETECT COLLISION WITH TREE OBSTACLES---------- */
 function detectTreeHit(objectOne, objectTwo) {
     const top = (objectOne.y + (objectOne.height * .75)) >= objectTwo.y;
     const bottom = (objectOne.y + (objectOne.height * .25)) <= objectTwo.y + objectTwo.height;
@@ -179,6 +181,7 @@ function detectTreeHit(objectOne, objectTwo) {
     return false;
 }
 
+/* ----- FUNCTION TO DETECT COLLISION WITH TRAIN STATION---------- */
 function detectTrainHit(objectOne, objectTwo) {
     const top = objectOne.y + objectOne.height >= objectTwo.y;
     const bottom = objectOne.y <= objectTwo.y + objectTwo.height;
@@ -191,6 +194,7 @@ function detectTrainHit(objectOne, objectTwo) {
     return false;
 }
 
+/* ----- FUNCTION TO TRACK THE SKIER'S HEALTHSCORE---------- */
 function healthScoreTracker () {
     if (healthScore === 3) {
         healthElement.textContent = "❤️ ❤️ ❤️";
@@ -207,6 +211,7 @@ function healthScoreTracker () {
     }
 }
 
+/* ----- FUNCTION TO INVOKE THE GAME LOOP---------- */
 const gameInterval = setInterval(gameloop, 80);
 function gameloop() {
     if (!gameStarted) {
@@ -249,30 +254,35 @@ function gameloop() {
     skier.render();
 }
 
+/* ----- FUNCTION TO SHOW TRY AGAIN BUTTON---------- */
 function winnerView () {
     counterElement.style.paddingTop = '20px';
     timerElement.style.display = "none";
     tryAgainButton.style.display = "inline-block";
 }
 
+/* ----- FUNCTION TO SHOW LOSING OPTION ONE MESSAGE---------- */
 function zeroHealthScore () {
     counterElement.textContent = "Oh je, You hit too many trees!";
     counterElement.style.color = 'red';
     winnerView ();
 }
 
+/* ----- FUNCTION TO SHOW LOSING OPTION TWO MESSAGE---------- */
 function timesUp () {
     counterElement.textContent = "Oh je, You missed the train!";
     counterElement.style.color = 'orange';
     winnerView ();
 }
 
+/* ----- FUNCTION TO SHOW WINNING MESSAGE---------- */
 function winnerMessage () {
     counterElement.textContent = "Geschafft! You made it!";
     counterElement.style.color = 'purple';
     winnerView ();
 }
 
+/* ----- FUNCTION TO INVOKE THE TIMER COUNTDOWN---------- */
 function startCountdown() {
     startButton.disabled = true;
     function updateTimer() {
@@ -296,6 +306,7 @@ function startCountdown() {
     updateTimer();
 }
 
+/* ----- FUNCTION TO DETERMINE IF WINNER OR NOT---------- */
 function skierWins() {
     if (timeRemaining > 0 && detectTrainHit(skier,train)) {
         winnerMessage ();
@@ -305,6 +316,7 @@ function skierWins() {
     return skiWinner = false;
 }
 
+/* ----- FUNCTION TO RESET GAME---------- */
 function resetGame() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     gameStarted = false;
