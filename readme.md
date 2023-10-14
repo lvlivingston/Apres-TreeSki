@@ -142,7 +142,7 @@ The minimum viable product (MVP) goal is for the user interface to show basic CS
 
 ###### Style
 - [X] Includes CSS & Canvas styling to match that of SkiFree
-<br/>
+
 ![Screenshot of SkiFree](./images/skiFree.png)
 
 ###### Functionality
