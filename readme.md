@@ -54,13 +54,13 @@ This game was built using HTML, CSS, vanilla JavaScript & Canvas.
 ###### Long-Term Stretch Goals
 - [ ] Add noises for when you hit a tree and ski, as well as music at the end
 - [ ] Adjust canvas to scroll left and right to add more surprise finds
-- [ ] Ability to play using the computer mouse
-- [ ] Ability to play on mobile (reacts to touch events)
 - [ ] Include moving obstacles i.e. other skiers/snowboarders, animals, etc.
 - [ ] Add point system based on number of wins, speed, and surprise finds
 - [ ] Include immediate 'game over' function by triggering an avalanche
 - [ ] Ability to choose your player "Johannes" or "Katarina"
 - [ ] Option to race computer player down the hill
+- [ ] Ability to play using the computer mouse
+- [ ] Ability to play on mobile (reacts to touch events)
 
 
 
