@@ -1,5 +1,6 @@
 # **Après-TreeSki**
  A browser based game created by Leah Livingston
+ [Play Now](https://lvlivingston.github.io/p1-project/)
 
 ---
 Do you remember Chris Pirih's classic 1991 computer game ["SkiFree"](https://classicreload.com/win3x-skifree.html#)? If you enjoyed running from the abominal snowman back then, you'll love this version set in the Austrian Alps!
@@ -141,8 +142,7 @@ The minimum viable product (MVP) goal is for the user interface to show basic CS
 
 
 ###### Style
-- [X] Includes CSS & Canvas styling to match that of SkiFree
-
+- [X] Includes CSS & Canvas styling to match that of SkiFree 
 ![Screenshot of SkiFree](./images/skiFree.png)
 
 ###### Functionality
