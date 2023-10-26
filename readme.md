@@ -2,7 +2,7 @@
  A browser based game created by Leah Livingston
 
 
-[Click Here to Play the Game Now](https://lvlivingston.github.io/p1-project/)
+[Click Here to Play the Game Now](https://lvlivingston.github.io/Apres-TreeSki/)
 
 ---
 Do you remember Chris Pirih's classic 1991 computer game ["SkiFree"](https://classicreload.com/win3x-skifree.html#)? If you enjoyed running from the abominal snowman back then, you'll love this version set in the Austrian Alps!
@@ -22,7 +22,7 @@ Click the ["Auf geht's!"](https://www.gymglish.com/en/wunderbla/german-vocabular
 ###### How to win
 You've won when your skier makes it to the bottom of the ski slope and onto the train in under one minute. If you hit three trees on the way down or don't reach the train, you lose.
 
-[Click Here to Play the Game Now](https://lvlivingston.github.io/p1-project/)
+[Click Here to Play the Game Now](https://lvlivingston.github.io/Apres-TreeSki/)
 
 ---
 ### Screenshots of the Game
