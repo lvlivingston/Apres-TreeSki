@@ -1,4 +1,4 @@
-# ![Banner Image](./images/titleBanner.png)
+# ![Title Banner](./images/titleBanner.png)
  A browser based game created by Leah Livingston
 
 
