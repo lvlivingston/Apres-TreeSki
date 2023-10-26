@@ -1,4 +1,4 @@
-# **Après-TreeSki**
+# ![Banner Image](./images/titleBanner.png)
  A browser based game created by Leah Livingston
 
 
