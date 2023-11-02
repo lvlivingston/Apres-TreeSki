@@ -42,6 +42,11 @@ You've won when your skier makes it to the bottom of the ski slope and onto the 
 ### **Tech Stack** 
 This game was built using HTML, CSS, vanilla JavaScript & Canvas.
 
+
+### **Credit**
+A big thank you to Weston Bailey, April Gonzalez, Matthew Haines, Tom Kolsrud, & Abay Rysbek for your support.
+
+
 ---
 ### **Next Steps**
 
